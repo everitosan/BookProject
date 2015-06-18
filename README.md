@@ -17,21 +17,21 @@ Specs for the Rest API
  ```
 ##WORK
 
-###Create area of Work
+###Create a Work area
  - [POST] request at **"/works"**
 ```sh
-  area: {
+  work: {
       "name": "develop"
   }
 ```
   - Response
 ```sh
-  area: {
+  work: {
       "id" : 1,
       "name": "develop"
   }
 ```
-###Get all areas 
+###Get all work areas 
  - [GET] request at **"/works"**
 ```sh
   [
@@ -42,21 +42,21 @@ Specs for the Rest API
     ...
   ]
 ```
-###Update an area
+###Update a work area
  - [PUT] request at **"/works/1"**
 ```sh
-    area: {
+    work: {
       "name": "Develop"
     }
 ```
   - Response
 ```sh
-    area: {
+    work: {
       "id": 1
       "name": "Develop"
     }
 ```
-###Delete an area
+###Delete an work area
  - [DELETE] request at **"/works/1"**
 ```sh
   StatusCode "200"
@@ -71,7 +71,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url" : "www.onedollaritem.org",
     "img" : "/public/img/oneDollarIre.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
  - Response
@@ -82,7 +82,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarIre.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
 
@@ -96,7 +96,7 @@ Specs for the Rest API
       "detail": "Our mission was to ...",
       "url": "www.onedollaritem.org",
       "img": "/public/img/oneDollarIre.png",
-      "area" : "develop"
+      "work" : "develop"
     },
     ...
   ]
@@ -111,7 +111,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarItem.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
  - Response
@@ -123,7 +123,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarItem.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
 
