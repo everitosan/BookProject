@@ -8,7 +8,14 @@
 module.exports = {
 
   attributes: {
-
+  	description: {
+  		type: "string",
+  		required: true
+  	},
+  	photo: {
+  		type: "string",
+  		required: "true"
+  	}
   }
 };
 

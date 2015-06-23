@@ -1,5 +1,5 @@
 /**
-* Work.js
+* Project.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,13 +8,24 @@
 module.exports = {
 
   attributes: {
-  	name: {
+  	title: {
   		type: "string",
   		required: true
   	},
-  	projects: {
-  		collection: "project",
-  		via: "work"
+  	detail: {
+  		type: "string",
+  		required: true
+  	},
+  	url: {
+  		type: "string",
+  		required: true
+  	},
+  	img: {
+  		type: "string",
+  		required: true
+  	},
+  	work:{
+  		model: "work"
   	}
   }
 };
