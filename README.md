@@ -7,13 +7,24 @@ Specs for the Rest API
 
 ##ABOUTME
 ##Create aboutCard
- - [POST] request at **/aboutMe**
+ - [POST] request at **/about**
  ```sh
   about:{
       "description": "Developer from ....",
       "photo": "/public/img/phoo.jpg",
 
   }
+ ```
+ ##Get all aboutCard
+ - [GET] request at **/about**
+ ```sh
+  [{
+      "description": "Developer from ....",
+      "photo": "/public/img/phoo.jpg",
+
+  },
+  ...
+  ]
  ```
 ##WORK
 
@@ -27,9 +38,11 @@ Specs for the Rest API
   - Response
 ```sh
   work: {
-      "id" : 1,
-      "name": "develop"
-  }
+    "name": "develop",
+    "createdAt": "2015-06-18T15:04:09.086Z",
+    "updatedAt": "2015-06-18T15:05:16.803Z",
+    "id": 1
+  },
 ```
 ###Get all work areas 
  - [GET] request at **"/works"**
