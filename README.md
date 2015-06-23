@@ -7,7 +7,7 @@ Specs for the Rest API
 
 ##ABOUTME
 ##Create aboutCard
- - [POST] request at **/aboutMe**
+ - [POST] request at **/about**
  ```sh
   about:{
       "description": "Developer from ....",
@@ -15,23 +15,36 @@ Specs for the Rest API
 
   }
  ```
+ ##Get all aboutCard
+ - [GET] request at **/about**
+ ```sh
+  [{
+      "description": "Developer from ....",
+      "photo": "/public/img/phoo.jpg",
+
+  },
+  ...
+  ]
+ ```
 ##WORK
 
-###Create area of Work
+###Create a Work area
  - [POST] request at **"/works"**
 ```sh
-  area: {
+  work: {
       "name": "develop"
   }
 ```
   - Response
 ```sh
-  area: {
-      "id" : 1,
-      "name": "develop"
-  }
+  work: {
+    "name": "develop",
+    "createdAt": "2015-06-18T15:04:09.086Z",
+    "updatedAt": "2015-06-18T15:05:16.803Z",
+    "id": 1
+  },
 ```
-###Get all areas 
+###Get all work areas 
  - [GET] request at **"/works"**
 ```sh
   [
@@ -42,21 +55,21 @@ Specs for the Rest API
     ...
   ]
 ```
-###Update an area
+###Update a work area
  - [PUT] request at **"/works/1"**
 ```sh
-    area: {
+    work: {
       "name": "Develop"
     }
 ```
   - Response
 ```sh
-    area: {
+    work: {
       "id": 1
       "name": "Develop"
     }
 ```
-###Delete an area
+###Delete an work area
  - [DELETE] request at **"/works/1"**
 ```sh
   StatusCode "200"
@@ -71,7 +84,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url" : "www.onedollaritem.org",
     "img" : "/public/img/oneDollarIre.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
  - Response
@@ -82,7 +95,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarIre.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
 
@@ -96,7 +109,7 @@ Specs for the Rest API
       "detail": "Our mission was to ...",
       "url": "www.onedollaritem.org",
       "img": "/public/img/oneDollarIre.png",
-      "area" : "develop"
+      "work" : "develop"
     },
     ...
   ]
@@ -111,7 +124,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarItem.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
  - Response
@@ -123,7 +136,7 @@ Specs for the Rest API
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarItem.png",
-    "area" : "develop"
+    "work" : "develop"
   }
 ```
 
