@@ -1,0 +1,57 @@
+#intro{
+	height: 100%;
+	#logo {
+		height: 50%;
+		display: block;
+		margin: 5% auto;
+		transition: all ease-in-out 4s;
+	}
+	#logo.hidden {
+		-webkit-filter: blur(35px);
+		opacity: 0;
+	}
+	#logo.show {
+		-webkit-filter: blur(0);
+		right: 0%;
+		opacity: 1;
+	}
+	#enter {
+		cursor: pointer;
+		display: block;
+		margin: 0 auto;
+		transform: scale(.7);
+		width: 140px;
+		opacity: 0;
+		transition: opacity ease-in-out 1s;
+
+
+		.lineStroke {
+			transition: all ease-in-out 1s;
+		}
+		
+		#lineUp{
+			transform: translateY(-50px);
+		}
+
+		#lineDown {
+			transform: translateY(50px);
+		}
+
+		text {
+			transition: all ease-in-out 1s;
+			fill-opacity: .4;
+		}
+
+		&:hover { 
+			#lineUp {
+				transform: translateY(0px);
+			}
+			#lineDown {
+				transform: translateY(0px);
+			}
+			text {
+				fill-opacity: 1;
+			}
+		}
+	}
+}
