@@ -20,8 +20,13 @@ module.exports = function(grunt) {
 			files: [{
 				expand: true,
 				cwd: './assets',
-				src: ['**/*.!(coffee|less)'],
+				src: ['**/*.!(coffee|less|jade)'],
 				dest: '.tmp/public'
+			}, {
+				expand: true,
+				cwd: './vendor',
+				src: ['angular/angular.js', 'angular-route/angular-route.js', 'd3/d3.js', 'snap.svg/dist/snap.svg.js', 'jquery/dist/jquery.js'],
+				dest: '.tmp/public/js/vendor'
 			}]
 		},
 		build: {

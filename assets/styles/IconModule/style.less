@@ -1,0 +1,75 @@
+nav#icons{ 
+	padding: 1em 2em;
+	height: 40px;
+	display: flex;
+	opacity: 0;
+	transition: opacity 2s ease-in-out;
+	div {
+		flex-grow: 1;
+		width: 200px;
+		flex-wrap: wrap;
+		height: 100%;
+		svg {
+			height: 100%;
+			cursor: pointer;
+			stroke-opacity : 1;
+			fill-opacity : 0;
+			transition: all ease-in-out 1s;
+		}
+		.active path {
+			stroke-opacity : 0;
+			fill-opacity : 1
+		}
+		
+	}
+	.left{
+		#facebook {
+			width: 45px;
+		}
+		#github {
+			width: 57px;
+		}
+		#behance {
+			width: 60px;
+		}
+		svg {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+		
+	}
+	.right {
+		text-align: right;
+		#share {
+			width: 70px;
+		}
+		#sound {
+			width: 65px;
+		}
+	}
+
+}
+
+@media screen and (max-width:480px) {
+	nav#icons {
+		padding: 1em 0;
+		.left {
+			#facebook {
+				width: 30px;
+			}
+			#github {
+				width: 42px;
+			}
+		}
+
+		.right {
+			#share {
+				width: 44px;
+			}
+			#sound {
+				width: 50px;
+			}
+		}
+	}
+}
+
