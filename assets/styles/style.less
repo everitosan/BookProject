@@ -20,11 +20,24 @@ video#videoBg {
 	height: 100%;
 	position: absolute;
 	display: flex;
+	transition: all ease-in-out 2s;
 	#sub-wrapper {
 		height: 100%;
-		flex: 1;
+		flex-grow: 2;
 		#main {
 			height: 90%;
+			section{
+				transition: all 1s ease-in-out;
+				-webkit-transition: all 1s ease-in-out;
+				opacity: 0;
+			}
+			.activeSection {
+				display: flex;
+				opacity: 1;
+			}
+			.hide {
+				display: none;
+			}
 		}
 	}
 	
