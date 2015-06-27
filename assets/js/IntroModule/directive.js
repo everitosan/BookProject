@@ -14,6 +14,7 @@
 				});
 
 				s.hover(hoverEnter);
+				s.click(step2);
 
 				setTimeout(function(){
 					s.attr({'opacity': 1});
@@ -21,6 +22,11 @@
 				setTimeout(function(){
 					$('#logo').toggleClass('show').toggleClass('hidden');
 				}, 4000);
+			}
+
+			function step2(){
+				document.getElementById('sub-wrapper').style.flex = 3; 
+				document.getElementById('menu').style.flex = 1; 
 			}
 
 			function hoverEnter(){
