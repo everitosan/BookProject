@@ -1,10 +1,17 @@
 #intro{
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 	#logo {
-		height: 50%;
 		display: block;
-		margin: 5% auto;
+		flex: 2;
+		margin: 0 auto;
 		transition: all ease-in-out 4s;
+		img {
+			display: block;
+			margin: 0 auto;
+			width: 350px;
+		}
 	}
 	#logo.hidden {
 		-webkit-filter: blur(35px);
@@ -12,10 +19,10 @@
 	}
 	#logo.show {
 		-webkit-filter: blur(0);
-		right: 0%;
 		opacity: 1;
 	}
 	#enter {
+		flex: 1;
 		cursor: pointer;
 		display: block;
 		margin: 0 auto;
@@ -54,4 +61,16 @@
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 500px) {
+
+	#intro{
+		#logo{
+			img{
+				width: 80%;
+			}
+		}
+	}
+	
 }
