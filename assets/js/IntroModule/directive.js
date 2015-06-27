@@ -25,8 +25,15 @@
 			}
 
 			function step2(){
-				document.getElementById('sub-wrapper').style.flex = 3; 
-				document.getElementById('menu').style.flex = 1; 
+
+
+				$('#menu').animate(
+					{'flex-grow': '1.3'},
+					1000,
+					'linear'
+				);
+				
+				
 			}
 
 			function hoverEnter(){
