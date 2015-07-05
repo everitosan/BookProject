@@ -5,8 +5,6 @@
 	angular.module('eveBook.directives')
 		.directive("aboutDirective", function(){
 
-			
-
 			var definitionObject =  {
 				restrict: 'E',
 				templateUrl : "templates/AboutModule/template.html"
