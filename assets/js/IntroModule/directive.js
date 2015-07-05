@@ -26,16 +26,18 @@
 
 			function step2(){
 
-
 				$('#menu').animate(
-					{'flex-grow': '1.3'},
+					{'flex-grow': '1.4'},
 					1000,
 					'linear'
 				);
 				
-				
+				setTimeout(function(){
+					$('#menu nav').css('opacity', 1);
+				},1000);
+		
 			}
-
+			
 			function hoverEnter(){
 				audio.play();
 			}
