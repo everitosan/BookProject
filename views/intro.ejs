@@ -1,17 +1,17 @@
-<video id="videoBg" autoplay loop>
+<!-- <video id="videoBg" autoplay loop>
 	<source src="media/Sec3_1.mp4">
-</video>
+</video> -->
 
 
-<div id="wrapper">
+<div id="wrapper" ng-controller="NavController">
 	<div id="sub-wrapper">
 		<icon-directive> </icon-directive>
-		<div id="main">
-			<intro-directive></intro-directive>
-			<about-directive></about-directive>	
-			<work-directive></work-directive>	
-			<contact-directive></contact-directive>	
-		</div>
+		<section id="main">
+			<intro-directive ng-if="isActive(0)" class="introAnimation"></intro-directive>
+			<about-directive ng-if="isActive(1)" class="aboutAnimation"></about-directive>	
+			<work-directive ng-if="isActive(2)"  class="workAnimation"></work-directive>	
+			<contact-directive ng-if="isActive(3)" ></contact-directive>
+		</section>
 	</div>
 	<div id="menu">
 		<menu-directive> </menu-directive>	
