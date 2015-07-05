@@ -30,8 +30,10 @@ var jsFilesToInject = [
   'js/dependencies/**/*.js',
   'js/vendor/angular/*.js',
   'js/vendor/angular-route/*.js',
+  'js/vendor/angular-animate/*.js',
   'js/vendor/d3/*.js',
   'js/vendor/snap.svg/**/*.js',
+  'js/vendor/greensock-js/**/**/*.js',
   'js/app.js',
 
   // All of the rest of your client-side js files
