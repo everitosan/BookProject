@@ -5,12 +5,13 @@ body, html {
 	margin: 0;
 	padding: 0;
 	color: white;
+	font-family:  'Avenir Next Condensed';
 }
 
 video#videoBg {
 	height: auto;
 	position: fixed;
-	bottom: 0;
+	top: -11px;
 	left: 0;
 }
 
@@ -26,17 +27,21 @@ video#videoBg {
 		flex-grow: 2;
 		#main {
 			height: 90%;
-			section{
-				transition: all 1s ease-in-out;
-				-webkit-transition: all 1s ease-in-out;
-				opacity: 0;
-			}
-			.activeSection {
-				display: flex;
-				opacity: 1;
-			}
-			.hide {
-				display: none;
+			position: relative;
+			article{
+				height: 100%;
+				width: 90%;
+				overflow: hidden;
+				margin: 0 auto;
+				&:not(#intro) {
+					opacity: 0;
+				}
+				.lineDown {
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					width: 100%;
+				}
 			}
 		}
 	}
