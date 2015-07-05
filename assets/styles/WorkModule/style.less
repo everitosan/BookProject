@@ -1,0 +1,34 @@
+#work {
+	#workContainer, #canvas {
+		width: 100%;
+		height: 100%;
+		g {
+			cursor: pointer;
+			&:hover text {
+				fill-opacity: 1;
+			}
+			text {
+				transition:fill-opacity .5s ease-in-out ;
+				fill: #FFF;
+				fill-opacity: 0;
+			}
+		}
+
+		.Circ {
+			stroke: #FFF;
+			stroke-width: 1px;
+			fill-opacity : 0;
+		}
+
+		.node {
+			fill: #000;
+			stroke:  url('#myLinearGradient1');
+			stroke-width: 2px;
+		}
+
+		.link {
+			stroke:  url('#myLinearGradient1');
+			stroke-width: 2px;
+		}
+	}
+}
