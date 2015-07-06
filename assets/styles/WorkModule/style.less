@@ -2,7 +2,12 @@
 	#workContainer, #canvas {
 		width: 100%;
 		height: 100%;
-		g {
+
+		#canvasGroup {
+			fill-opacity: 0;
+			transition:2s ease-in-out;
+		}
+		.nodeParent {
 			cursor: pointer;
 			&:hover text {
 				fill-opacity: 1;
@@ -21,6 +26,7 @@
 		}
 
 		.node {
+			fill-opacity: 1;
 			fill: #000;
 			stroke:  url('#myLinearGradient1');
 			stroke-width: 2px;

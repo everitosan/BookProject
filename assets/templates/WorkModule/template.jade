@@ -1,7 +1,8 @@
 article#work
 	work-menu-directive
 	div#workContainer
-		svg#canvas
+		svg(id="canvas" ng-controller="workController")
+			g(id="canvasGroup")
 			defs
 				lineargradient#myLinearGradient1(x1='0%', y1='0%', x2='0%', y2='100%', spreadmethod='pad')
 					stop(offset='0%', stop-color='#FF007A', stop-opacity='1')

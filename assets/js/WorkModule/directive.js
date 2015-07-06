@@ -1,46 +1,34 @@
 (function(){
 	angular.module('eveBook.directives')
-	.directive('workDirective', [function(){
-	function link ($scope, element) {
+	.directive('workDirective', ['$rootScope', function($rootScope){
+	var svg, canvasGroup, width, height;
+	
+	function link (scope, element) {
 
-		$scope.$on('dataObtained', function(event, data){
+		scope.$on('dataObtained', function(event, data){
 			printD3(data);
 		});
-
 	}
 
-	function setNodesXY(data) {
-		data.forEach(function(el) {
-			el.x = 1;
-			el.y = 1;
-		});
-		return data;
-	}
+	function zoomProject() {
+		var scale = 5;
+		var x = width*.5 - (this.getAttribute('x') * scale);
+		var y = height*.5 - (this.getAttribute('y') * scale);
+		canvasGroup.attr("transform", "translate(" +  x +","+ y + ")" + "scale(" + scale +")");
 
-	function createLinks(data) {
-		var links = [];
-		data.forEach(function(el, index, arr){
-			var length = (arr.length) - 1;
-			var  i = index;	
-			for(i; i<length; i++) {
-				var par = {
-					'target': index,
-					'source': i+1
-				};
-				links.push(par);
-			}
-		});
-		return links;
+		$rootScope.$broadcast('showDetailProject', {});
 	}
 
 	function printD3(data) {
-		d3.select('#canvas').selectAll('g').remove();
-		d3.select('#canvas').selectAll('line').remove();
+		d3.select('#canvasGroup').selectAll('*').remove();
 		
-		var width = parseInt($('#canvas').css('width'));
-		var height = parseInt($('#canvas').css('height'));
+		width = parseInt($('#canvas').css('width'));
+		height = parseInt($('#canvas').css('height'));
+		var zoom = d3.behavior.zoom()
+					.scaleExtent([1, 40]);
 
-		var svg = d3.select('#canvas');
+		svg = d3.select('#canvas');
+		canvasGroup = d3.select('#canvasGroup').call(zoom); 
 
 		data = setNodesXY(data);
 		var links = createLinks(data);
@@ -51,17 +39,22 @@
 			.nodes(data)
 			.links(links);
 
-		var link = svg.selectAll('.link')
+		canvasGroup.append('rect').attr('width', width).attr('height', height);
+
+		var link = canvasGroup.selectAll('.link')
 			.data(links)
 			.enter().append('line')
 			.attr('class', 'link');
 
-		var group = svg.selectAll('g')
+		var group = canvasGroup.selectAll('g')
 			.data(data)
 			.enter()
 			.append('g')
 			.attr('data', function(d) {return d.title; })
+			.attr('class', 'nodeParent')
+			.on('mouseup', zoomProject)
 			.call(force.drag);
+
 
 		var nodeCirc = group
 			.append('circle')
@@ -83,6 +76,10 @@
 			.text(function(d){ return d.title; });
 
 		force.on("tick", function() {
+			if(d3.event) {
+			 d3.event.sourceEvent.stopPropagation();
+			}
+
 			link.attr("x1", function(d) { return d.source.x; })
 				.attr("y1", function(d) { return d.source.y; })
 				.attr("x2", function(d) { return d.target.x; })
@@ -109,10 +106,34 @@
 		force.start();	
 		
 	}
+
+	function setNodesXY(data) {
+		data.forEach(function(el) {
+			el.x = 1;
+			el.y = 1;
+		});
+		return data;
+	}
+
+	function createLinks(data) {
+		var links = [];
+		data.forEach(function(el, index, arr){
+			var length = (arr.length) - 1;
+			var  i = index;	
+			for(i; i<length; i++) {
+				var par = {
+					'target': index,
+					'source': i+1
+				};
+				links.push(par);
+			}
+		});
+		return links;
+	}
 	var definitionObject = {
         restrict: 'E',
         link: link,
-        scope: true,
+        scope: {},
         templateUrl:'templates/WorkModule/template.html'
       };
 
