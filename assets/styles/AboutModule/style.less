@@ -1,0 +1,65 @@
+#about {
+	flex-direction: column;
+	.photoContainer {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			height:  60%;
+			margin-bottom: 10%;
+		.dottedLine {
+			background: url('../images/dottedLine.png');
+			background-repeat: no-repeat;
+			background-size: 60% auto;
+			background-position: center;
+			height: 2px;
+			position: relative;
+			left: -100%;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			#aboutPhoto {
+				background: url('../images/diamond.png');
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				overflow: hidden;
+				margin: 0 auto;
+				display: block;
+				width: 200px;
+				position: relative;
+				transform: scale(.8,.8);
+				.littleDeatilBox {
+					width: 40px;
+					height: 40px;
+					position: absolute;
+					z-index: 2;
+				}
+				#bottomBox { 
+					top: 0;
+					right: 0;
+				}
+				#topBox {
+					bottom: 0;
+					left: 0;
+				}
+				figure {
+					margin: 0;
+					margin: 4px;
+					width: 96%;
+					height: 96%;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+	.description {
+		font-size: 1.2em;
+		margin: 0 auto;
+		opacity: 0;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	
+}

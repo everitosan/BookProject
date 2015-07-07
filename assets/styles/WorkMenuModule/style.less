@@ -1,0 +1,76 @@
+#workMenu {
+	position: absolute;
+	top: 0;
+	left: 5% ;
+	.toogler {
+		background: url('../images/diamond.png');
+		background-position: center;	
+		background-size: 100% 100%;	
+		width: 32px;
+		height: 32px;
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: top;
+		svg {
+			path {
+				transition: all ease-in-out .5s;
+			}
+			#crossUp, #crossDown{
+					transform: rotateZ(0);
+			}
+			.cross { 
+				transform-origin: 50% 50%;
+			}
+			.barTop, .barBottom {
+				transform: translateY(0);
+			}
+		}
+	}
+	.toogled{
+		svg {
+			#crossUp {
+				transform: rotateZ(-45deg);
+			}
+
+			#crossDown {
+				transform: rotateZ(45deg);
+			}
+			.barTop{
+				  transform: translateY(4px);
+			}
+			.barBottom{
+				  transform: translateY(-4px);
+			}
+		}
+	}
+
+	#catContainer {
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 1em;
+		margin: 0;
+		width: 140px;
+		.catContainerLink {
+				background: url('../images/dottedLine.png');
+				background-position: center;
+				background-size: 200% auto;
+				background-repeat: no-repeat;
+				padding: 0 1em;
+				height: 32px;
+				width: 2px;
+				line-height: 32px;
+				margin-bottom: 1em;
+				overflow: hidden;
+				position: absolute;
+			
+			li {
+				background: url('../images/worksCat.png');
+				background-position: center;
+				background-size: 100% 100%;
+				cursor: pointer;
+				list-style: none;
+				opacity: 0;
+			}
+		}
+	}
+}

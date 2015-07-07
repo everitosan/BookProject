@@ -2,8 +2,10 @@
 	'use strict';
 
 	angular.module('eveBook.controllers')
-		.controller('menuCtrl', 
-			['$scope',function ($scope) {
+		.controller('MenuController', 
+			['$scope', 'workSrv',function ($scope, workSrv) {
+				
+				
 				
 			}]);
 })();
