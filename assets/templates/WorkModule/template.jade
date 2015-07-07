@@ -1,12 +1,28 @@
-article#work
+include ../mixing/gradients.jade
+
+article(id="work" ng-controller="workController")
 	work-menu-directive
 	div#workContainer
-		svg(id="canvas" ng-controller="workController")
+		svg(id="canvas")
 			g(id="canvasGroup")
 			defs
 				lineargradient#myLinearGradient1(x1='0%', y1='0%', x2='0%', y2='100%', spreadmethod='pad')
 					stop(offset='0%', stop-color='#FF007A', stop-opacity='1')
 					stop(offset='100%', stop-color='#B72DD4', stop-opacity='1')
+
+	div(id="detailWork" ng-show="isDetail()")
+		div(class="cont" id="title")
+			img(class="closeDetail" src="images/closeDetail.png" ng-click="hideDetail()" )
+			div.title
+				svg
+					+gradient()
+					text(x="100%" y="40px" text-anchor="end") {{dataDetail.title}}
+		div(class="cont" id="detailProject")
+			p {{dataDetail.detail}}
+			a(ng-href="{{dataDetail.url}}" target="_blank" class="link")
+				svg
+					+gradient()
+					text(x="100%" y="15px" text-anchor="end") {{dataDetail.url}}
 
 	img(src="images/lineDown.jpg" class="lineDown" alt="lineDown")
 	
