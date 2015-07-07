@@ -20,6 +20,8 @@
 				};
 
 				$scope.getProjects = function(index){
+					$('#clicked')[0].play();
+
 					index++;
 					if(index === $scope.catActive) {
 						return false;

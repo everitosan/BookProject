@@ -5,7 +5,7 @@
 
 		function link (scope, element) {
 			audio = new  Audio('/media/incidentals/2138.ogg');
-			audioClick = new  Audio('/media/incidentals/click.ogg');
+			audioClick = $('#clicked')[0];
 			$(element).find('li').hover(playSound, stopSound).click(playClick);
 			$(element).mouseleave(selectActive);
 			selectFirst();

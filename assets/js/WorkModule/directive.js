@@ -1,25 +1,43 @@
 (function(){
 	angular.module('eveBook.directives')
 	.directive('workDirective', ['$rootScope', function($rootScope){
-	var svg, canvasGroup, width, height;
+	var svg, canvasGroup, width, height,globalData;
 	
 	function link (scope, element) {
 
 		scope.$on('dataObtained', function(event, data){
 			printD3(data);
 		});
+
+		scope.$on('closeDetail', function(event, data){
+			zoomOut();
+		});
+
+	}
+
+	function zoomOut() {
+		$('#clicked')[0].play();
+		TweenMax.to(canvasGroup, 1, {scale: 1, x:0 , y:0});
+		TweenMax.to('#detailWork', 1, {right: '-100%'});
+		document.querySelector('.logoProject').setAttribute('style', null);
 	}
 
 	function zoomProject() {
+		this.querySelector('.logoProject').setAttribute('style', 'opacity :1');
+		$('#clicked')[0].play();
 		var scale = 5;
-		var x = width*.5 - (this.getAttribute('x') * scale);
+		var x = width*.4 - (this.getAttribute('x') * scale);
 		var y = height*.5 - (this.getAttribute('y') * scale);
-		canvasGroup.attr("transform", "translate(" +  x +","+ y + ")" + "scale(" + scale +")");
 
-		$rootScope.$broadcast('showDetailProject', {});
+		TweenMax.to(canvasGroup, 1, {scale: scale, x:x , y:y, ease: Circ.easeOut});
+		TweenMax.to('#detailWork', 1, {right: 0, ease: Circ.easeOut});
+
+		$rootScope.$broadcast('showDetailProject', globalData[ this.getAttribute('data') -1 ]);
 	}
 
 	function printD3(data) {
+		globalData = data;
+
 		d3.select('#canvasGroup').selectAll('*').remove();
 		
 		width = parseInt($('#canvas').css('width'));
@@ -50,17 +68,16 @@
 			.data(data)
 			.enter()
 			.append('g')
-			.attr('data', function(d) {return d.title; })
+			.attr('data', function(d) {return d.id; })
 			.attr('class', 'nodeParent')
 			.on('mouseup', zoomProject)
 			.call(force.drag);
-
 
 		var nodeCirc = group
 			.append('circle')
 			.attr('r', 20)
 			.attr('class', 'Circ');
-		
+
 		var nodeCirc2 = group
 			.append('circle')
 			.attr('r', 25)
@@ -70,6 +87,13 @@
 			.append('circle')
 			.attr('r', 15)
 			.attr('class', 'node');
+		
+		var logoCirc = group
+			.append('image')
+			.attr('xlink:href', function(d){ return d.img;})
+			.attr('width', '29px')
+			.attr('height', '29px')
+			.attr('class', 'logoProject');
 
 		var text = group
 			.append('text')
@@ -87,6 +111,10 @@
 
 			group.attr("x", function(d) { return d.x; })
 				.attr("y", function(d) { return d.y; });
+
+			logoCirc
+				.attr("x", function(d) { return d.x - 15; })
+				.attr("y", function(d) { return d.y - 15; });
 
 			nodeCirc
 				.attr("cx", function(d) { return d.x; })
