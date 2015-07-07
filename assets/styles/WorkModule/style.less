@@ -1,11 +1,11 @@
 #work {
+	position: relative;
 	#workContainer, #canvas {
 		width: 100%;
 		height: 100%;
 
 		#canvasGroup {
 			fill-opacity: 0;
-			transition:2s ease-in-out;
 		}
 		.nodeParent {
 			cursor: pointer;
@@ -36,5 +36,87 @@
 			stroke:  url('#myLinearGradient1');
 			stroke-width: 2px;
 		}
+		.logoProject {
+			opacity: 0;
+		}
 	}
+	#detailWork {
+		position: absolute;
+		right: -100%;
+		top: 0;
+		width: 45%;
+
+		#title {
+			min-height: 80px;
+  			margin-bottom: 1em;
+  			padding-bottom: 0;
+  			img.closeDetail {
+  				margin-top: 24px;
+  				cursor: pointer;
+  			}
+			.title {
+				padding: 1em 0;
+				margin-bottom: 1em;
+				height: 45px;
+				display: inline-block;
+				width: 80%;
+				float: right;
+				svg {
+					display: block;
+					width: 100%;
+					height: 100%;
+					text {
+						float: right;
+						font-size: 2.3em;
+						fill:  url('#myLinearGradient1');
+					}
+				}
+			}
+		}
+		.cont {
+			background: rgba(0,0,0,.8);
+			padding: .1em 1em;
+			padding-bottom: 2em;
+			.link {
+				svg {
+					height: 20px;
+					float: right;
+					text {
+						fill:  url('#myLinearGradient1');
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px){
+	#work #detailWork {
+		width: 60%;
+	}
+}
+
+@media screen and (max-width: 780px){
+	#work {
+
+		#detailWork {
+			width: 100%;
+			height: 100%;
+			.cont {
+				background: rgba(0, 0, 0, 0.9);
+			}
+			#detailProject {
+				height: 70%;
+				overflow: scroll;
+			}
+		} 
+		#workContainer, #canvas {
+			.nodeParent {
+				text {
+					fill-opacity : 1;
+				}
+			}
+		}
+	}
+
 }
