@@ -1,5 +1,6 @@
 var url ="http://localhost:1337/";
 var request = require("supertest")(url);
+var id = 0;
 
 describe("about model", function(){
 	it("insert a new record into about", function(done){
@@ -23,7 +24,7 @@ describe("about model", function(){
 				expect(about).to.have.property('description', data.description);
 				expect(about).to.have.property('photo', data.photo);
 				expect(about).to.have.property('id');
-
+				id = res.body.id;
 				done(err);
 		});
 	});
@@ -54,7 +55,48 @@ describe("about model", function(){
 	});
 
 	it("update a record of about model", function(done){
+
+		var data = {
+			description : 'Des changed'
+		}
+
 		request
-			.
+			.post("about/update/"+ id)
+			.set("Accept", "application/json")
+			.send(data)
+			.expect(200)
+			.expect('Content-Type', /application\/json/)
+			.end( function(err, res) {
+				if(err)
+					throw err;
+
+				var object = res.body
+
+				expect(object).to.be.instanceof(Object);
+				expect(object).to.have.property('id');
+				expect(object).to.have.property('description', data.description);
+
+				done(err);
+			})
+	});
+
+	it("delete a record of about model", function(done){
+
+		request
+			.post("about/destroy/"+ id)
+			.set("Accept", "application/json")
+			.expect(200)
+			.expect('Content-Type', /application\/json/)
+			.end( function(err, res) {
+				if(err)
+					throw err;
+
+				var object = res.body
+
+				expect(object).to.be.instanceof(Object);
+				expect(object).to.have.property('id');
+
+				done(err);
+			})
 	});
 });
