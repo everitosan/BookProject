@@ -3,11 +3,13 @@
 
 	angular.module('eveBook.directives')
 		.directive('introDirective',function(){
-			var audio;
+			var audio,
+				audioClick;
 
 			function link() {
 				var s = Snap('#enter');
 				audio = new Audio('media/incidentals/enter.ogg');
+				audioClick = $('#clicked')[0];
 
 				Snap.load('images/enter2.svg', function(vector){
 					s.append(vector.select('g'));
@@ -25,7 +27,7 @@
 			}
 
 			function step2(){
-
+				audioClick.play();
 				$('#menu').animate(
 					{'flex-grow': '1.4'},
 					1000,
