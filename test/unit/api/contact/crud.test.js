@@ -13,7 +13,7 @@ describe("Contact model", function(){
 		  };
 
 		request
-			.post("project/create")
+			.post("contact/create")
 			.set('Accept', 'application/json')
 			.send(data)
 			.expect(201)
@@ -35,7 +35,7 @@ describe("Contact model", function(){
 
 	it("get all records of Contact model", function(done) {
 		request
-			.get("project/")
+			.get("contact/")
 			.set("Accept", "application/json")
 			.expect(200)
 			.expect('Content-Type', /application\/json/)
