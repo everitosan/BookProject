@@ -187,39 +187,44 @@ Specs for the Rest API
 ##ContactWays
 
 ###Create a new Way under ContactWays
- - [POST] request at **"/contactWays"**
+ - [POST] request at **"/contact"**
 ```sh
-  way: {
-    "type": "Residence",
-    "content": "México City"
+  {
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hi ..."
   }
 ```
  - Response
 ```sh
-  way: {
-    "id": 1
-    "type": "Residence",
-    "content": "México City"
+  {
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hi ...",
+    id: 1
   }
 ```
 
 ###Get all ways under ContactWays
- - [GET] request at **"/contactWays"**
+ - [GET] request at **"/contact"**
 ```sh
   [{
-    "id": 1
-    "type": "Residence",
-    "content": "México City"
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hi ...",
+    id: 1
   }, 
   ...]
 ```
 
 ###Update a way under ContactWays
- - [PUT] request at **"/contactWays/1"**
+ - [PUT] request at **"/contact/:id"**
 ```sh
   [{
-    "type": "Actual Residence",
-    "content": "México City"
+    text: "Hello, this is me...."
   }, 
   ...]
 ```
@@ -227,9 +232,11 @@ Specs for the Rest API
  - Response
 ```sh
   [{
-    "id": 1
-    "type": "Actual Residence",
-    "content": "México City"
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hello, this is me....",
+    id: 1
   }, 
   ...]
 ```
