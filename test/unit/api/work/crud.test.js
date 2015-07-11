@@ -2,16 +2,15 @@ var url ="http://localhost:1337/";
 var request = require("supertest")(url);
 var id = 0;
 
-describe("about model", function(){
-	it("insert a new record into about", function(done){
+describe("Work model", function(){
+	it("insert a new record into work", function(done){
 
 		var data = { 
-			description : "Engeniering and electronic background...",
-			photo : "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xta1/v/t1.0-1/p50x50/11269743_10206513423296819_4430011067814486969_n.jpg?oh=1ec30bec4a9fbb7fa9d36bb3fb433747&oe=562977D6&__gda__=1441801976_ed99f9a511b8c78d4dd834dca4196359"
+			name: "Develop"
 		};
 
 		request
-			.post("about/create")
+			.post("work/create")
 			.set('Accept', 'application/json')
 			.send(data)
 			.expect(201)
@@ -20,18 +19,17 @@ describe("about model", function(){
 				if(err)
 					throw err
 
-				var about = res.body;
-				expect(about).to.have.property('description', data.description);
-				expect(about).to.have.property('photo', data.photo);
-				expect(about).to.have.property('id');
+				var work = res.body;
+				expect(work).to.have.property('name', data.name);
+				expect(work).to.have.property('id');
 				id = res.body.id;
 				done(err);
 		});
 	});
 
-	it("get all records of about model", function(done) {
+	it("get all records of work model", function(done) {
 		request
-			.get("about/")
+			.get("work/")
 			.set("Accept", "application/json")
 			.expect(200)
 			.expect('Content-Type', /application\/json/)
@@ -44,8 +42,7 @@ describe("about model", function(){
 
 				collection.forEach(function(element){	
 					expect(element).to.be.instanceof(Object);
-					expect(element).to.have.property('description');
-					expect(element).to.have.property('photo');
+					expect(element).to.have.property('name');
 					expect(element).to.have.property('id');
 				});
 
@@ -54,14 +51,14 @@ describe("about model", function(){
 			});
 	});
 
-	it("update a record of about model", function(done){
+	it("update a record of work model", function(done){
 
 		var data = {
-			description : 'Des changed'
+			name : 'DEVELOP'
 		}
 
 		request
-			.post("about/update/"+ id)
+			.post("work/update/"+ id)
 			.set("Accept", "application/json")
 			.send(data)
 			.expect(200)
@@ -74,16 +71,16 @@ describe("about model", function(){
 
 				expect(object).to.be.instanceof(Object);
 				expect(object).to.have.property('id');
-				expect(object).to.have.property('description', data.description);
+				expect(object).to.have.property('name', data.name);
 
 				done(err);
 			})
 	});
 
-	it("delete a record of about model", function(done){
+	it("delete a record of work model", function(done){
 
 		request
-			.post("about/destroy/"+ id)
+			.post("work/destroy/"+ id)
 			.set("Accept", "application/json")
 			.expect(200)
 			.expect('Content-Type', /application\/json/)

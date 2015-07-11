@@ -7,7 +7,7 @@ Specs for the Rest API
 
 ##ABOUTME
 ##Create aboutCard
- - [POST] request at **/about**
+ - [POST] request at **/about/create**
  ```sh
   about:{
       "description": "Developer from ....",
@@ -15,8 +15,17 @@ Specs for the Rest API
 
   }
  ```
+  - Response
+```sh
+  about:{
+      "description": "Developer from ....",
+      "photo": "/public/img/phoo.jpg",
+      "id": 1
+  }
+```
+
  ##Get all aboutCard
- - [GET] request at **/about**
+ - [GET] request at **/about/[id]**
  ```sh
   [{
       "description": "Developer from ....",
@@ -26,37 +35,59 @@ Specs for the Rest API
   ...
   ]
  ```
+ ##Update aboutCard
+- [PUT] request at **/about/update/[id]**
+ ```sh
+  [{
+      "description": "Developer from ....",
+      "photo": "/public/img/phoo.jpg",
+
+  },
+  ...
+  ]
+ ```
+
+ ##Update aboutCard
+- [DELETE] request at **/about/destroy/[id]**
+  - Response
+ ```sh
+  StatusCode "200"
+ ```
+
 ##WORK
 
 ###Create a Work area
- - [POST] request at **"/works"**
+ - [POST] request at **"/work/create"**
 ```sh
   work: {
-      "name": "develop"
+      "name": "Web design"
   }
 ```
   - Response
 ```sh
   work: {
-    "name": "develop",
-    "createdAt": "2015-06-18T15:04:09.086Z",
-    "updatedAt": "2015-06-18T15:05:16.803Z",
-    "id": 1
+      "projects": [],
+      "name": "Web design",
+      "createdAt": "2015-06-30T15:08:35.963Z",
+      "updatedAt": "2015-06-30T15:16:04.007Z",
+      "id": 2
   },
 ```
 ###Get all work areas 
- - [GET] request at **"/works"**
+ - [GET] request at **"/work"**
 ```sh
-  [
-    {
-      "id" : 1,
-      "name": "develop"
+  [{
+      "projects": [],
+      "name": "Web design",
+      "createdAt": "2015-06-30T15:08:35.963Z",
+      "updatedAt": "2015-06-30T15:16:04.007Z",
+      "id": 2
     },
     ...
   ]
 ```
 ###Update a work area
- - [PUT] request at **"/works/1"**
+ - [PUT] request at **"/works/update/[id]"**
 ```sh
     work: {
       "name": "Develop"
@@ -65,43 +96,49 @@ Specs for the Rest API
   - Response
 ```sh
     work: {
-      "id": 1
-      "name": "Develop"
+      "projects": [],
+      "name": "Develop",
+      "createdAt": "2015-06-30T15:08:35.963Z",
+      "updatedAt": "2015-06-30T15:16:04.007Z",
+      "id": 2
     }
 ```
 ###Delete an work area
- - [DELETE] request at **"/works/1"**
+ - [DELETE] request at **"/works/destroy/[id]"**
 ```sh
   StatusCode "200"
 ```
 
+
+##PROJECT
+
 ###Create a new Project 
 
- - [POST] request at **"/works/develop"**
+ - [POST] request at **"/project/create"**
 ```sh
-  proyect: {
+  project: {
     "title": "One Dollar Item",
     "detail": "Our mission was to ...",
     "url" : "www.onedollaritem.org",
     "img" : "/public/img/oneDollarIre.png",
-    "work" : "develop"
+    "work" : 1
   }
 ```
  - Response
 ```sh
-  proyect: {
+  project: {
     "id": 1,
     "title": "One Dollar Item",
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarIre.png",
-    "work" : "develop"
+    "work" : 1
   }
 ```
 
-###Get all projects
+###Get all projects under area of work
 
- - [GET] request at **"/works/develop"**
+ - [GET] request at **"/work/[idWork]/projects/"**
 ```sh
   [
     {
@@ -109,7 +146,7 @@ Specs for the Rest API
       "detail": "Our mission was to ...",
       "url": "www.onedollaritem.org",
       "img": "/public/img/oneDollarIre.png",
-      "work" : "develop"
+      "work" : 1
     },
     ...
   ]
@@ -117,32 +154,32 @@ Specs for the Rest API
 
 
 ###Update a project
- - [PUT] request at **"/works/develop/1"**
+ - [PUT] request at **"/project/update/[idProject]"**
 ```sh
-  proyect: {
+  project: {
     "title": "One Dollar Item",
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarItem.png",
-    "work" : "develop"
+    "work" : 1
   }
 ```
  - Response
 
 ```sh
-  proyect: {
+  project: {
     "id": 1
     "title": "One Dollar Item",
     "detail": "Our mission was to ...",
     "url": "www.onedollaritem.org",
     "img": "/public/img/oneDollarItem.png",
-    "work" : "develop"
+    "work" : 1
   }
 ```
 
 ###Delete a project
 
- - [DELETE] request at **"/works/develop/1"**
+ - [DELETE] request at **"/project/destroy/[idProject]"**
 ```sh
   StatusCode "200"
 ```
@@ -150,39 +187,44 @@ Specs for the Rest API
 ##ContactWays
 
 ###Create a new Way under ContactWays
- - [POST] request at **"/contactWays"**
+ - [POST] request at **"/contact"**
 ```sh
-  way: {
-    "type": "Residence",
-    "content": "México City"
+  {
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hi ..."
   }
 ```
  - Response
 ```sh
-  way: {
-    "id": 1
-    "type": "Residence",
-    "content": "México City"
+  {
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hi ...",
+    id: 1
   }
 ```
 
 ###Get all ways under ContactWays
- - [GET] request at **"/contactWays"**
+ - [GET] request at **"/contact"**
 ```sh
   [{
-    "id": 1
-    "type": "Residence",
-    "content": "México City"
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hi ...",
+    id: 1
   }, 
   ...]
 ```
 
 ###Update a way under ContactWays
- - [PUT] request at **"/contactWays/1"**
+ - [PUT] request at **"/contact/:id"**
 ```sh
   [{
-    "type": "Actual Residence",
-    "content": "México City"
+    text: "Hello, this is me...."
   }, 
   ...]
 ```
@@ -190,9 +232,11 @@ Specs for the Rest API
  - Response
 ```sh
   [{
-    "id": 1
-    "type": "Actual Residence",
-    "content": "México City"
+    residence: "México City"
+    telephone: "5540128869",
+    email: "eve@rocks.com",
+    text: "Hello, this is me....",
+    id: 1
   }, 
   ...]
 ```
