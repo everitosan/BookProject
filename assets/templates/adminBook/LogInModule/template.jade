@@ -1,0 +1,6 @@
+div(id="LogInForm" ng-controller="signInController" )
+	div(ng-if="!logged" id="buttongLogin" ng-app='directive.g+signin')
+		div
+			google-plus-signin(clientid='716416736034-c849kmsj1vbtpjfsms3nbgfph6et7a0i')
+	div(ng-if="logged")
+		tabs-directive

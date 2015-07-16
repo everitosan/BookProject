@@ -1,0 +1,19 @@
+div(ng-controller="tabsController")
+		ul#tabs
+			li(ng-click="setActive(1)") About	
+			li(ng-click="setActive(2)") Work	
+			li(ng-click="setActive(3)") Contact	
+		section
+			article(ng-show="activeTab(1)")
+				div(ng-repeat="card in about" class="element")
+					p {{card.description}}
+					p {{card.photo}}
+					button.btn.btn-default.btn-sm.btn-primary(type='button')
+						|	UPDATE
+					button.btn.btn-default.btn-sm.btn-danger(type='button')
+						|	DELETE
+				span(ng-show="!hasAbout", ng-click="aboutModal()") addNew
+			article(ng-show="activeTab(2)")
+				p Work
+			article(ng-show="activeTab(3)")
+				p Contact
