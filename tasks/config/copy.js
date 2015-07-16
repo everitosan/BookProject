@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 			}, {
 				expand: true,
 				cwd: './vendor',
-				src: ['angular/angular.js', 'angular-route/angular-route.js', 'angular-animate/angular-animate.js', 'd3/d3.js', 'snap.svg/dist/snap.svg.js', 'jquery/dist/jquery.js', 'greensock-js/src/uncompressed/TweenMax.js'],
+				src: ['angular/angular.js', 'angular-route/angular-route.js', 'angular-animate/angular-animate.js', 'd3/d3.js', 'snap.svg/dist/snap.svg.js', 'jquery/dist/jquery.js', 'greensock-js/src/uncompressed/TweenMax.js', 'angular-directive.g-signin/*.js', 'angular-bootstrap/ui-bootstrap-tpls.js'],
 				dest: '.tmp/public/js/vendor'
 			}]
 		},

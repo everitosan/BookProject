@@ -31,6 +31,7 @@ var jsFilesToInject = [
   'js/vendor/angular/*.js',
   'js/vendor/angular-route/*.js',
   'js/vendor/angular-animate/*.js',
+  'js/vendor/angular-bootstrap/*.js',
   'js/vendor/d3/*.js',
   'js/vendor/snap.svg/**/*.js',
   'js/vendor/greensock-js/**/**/*.js',
@@ -38,7 +39,7 @@ var jsFilesToInject = [
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js'
+  'js/**/**/*.js'
 ];
 
 
