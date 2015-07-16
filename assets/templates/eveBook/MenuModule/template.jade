@@ -1,0 +1,15 @@
+nav(ng-controller="MenuController")
+    figure
+        img(src="images/EVESANLogo.png")
+    img(id="selectedImg" src="images/menuItem.svg")
+    ul
+        li( ng-click="$parent.$parent.setActive(1)") About Me
+        li( ng-click="$parent.$parent.setActive(2)") Work
+        li( ng-click="$parent.$parent.setActive(3)") Contact
+    span(id="mobileTooglerMenu")
+        svg(width='100%', height='100%', viewbox='0 0 45 45', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', xml:space='preserve', style='fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.41421;')
+            g#Layer1
+                path(class="barTop" d='M8.19762,6.47149L36.5822,6.47149', style='fill:none;stroke-width:2px;stroke:white;')
+                path(class="cross" id="crossUp" d='M12.3407,12.3981L32.4116,32.469', style='fill:none;stroke-width:2px;stroke:white;')
+                path(class="cross" id="crossDown" d='M12.4077,32.469L32.4786,12.3981', style='fill:none;stroke-width:2px;stroke:white;')
+                path(class="barBottom" d='M8.21712,38.4514L36.6017,38.4514', style='fill:none;stroke-width:2px;stroke:white;')
