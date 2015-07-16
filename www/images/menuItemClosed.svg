@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 94 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Layer1">
+        <g>
+            <path d="M0.33946,22.3063L94.0679,22.3063" style="fill:none;stroke-width:2px;stroke-dasharray:1,2,0,0;stroke:rgb(255,252,254);"/>
+            <rect x="25.0345" y="0.0193487" width="44.5613" height="44.5613" style="fill:black;stroke-width:0.8px;stroke-linejoin:miter;stroke:url(#tag1);"/>
+            <path d="M33.0164,6.47149L61.401,6.47149" style="fill:none;stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;stroke:white;"/>
+            <path d="M37.1595,12.3981L57.2304,32.469" style="fill:none;stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;stroke:white;"/>
+            <path d="M37.2265,32.469L57.2974,12.3981" style="fill:none;stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;stroke:white;"/>
+            <path d="M33.0359,38.4514L61.4205,38.4514" style="fill:none;stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;stroke:white;"/>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="tag1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(44.5613,-1.73155e-14,4.9473e-15,44.5613,25.0345,22.3)"><stop offset="0%" style="stop-color:rgb(226,0,117);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(186,0,212);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>
