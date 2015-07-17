@@ -25,5 +25,8 @@
     "greensock-js": "~1.10.2",
     "angular-directive.g-signin": "~0.1.2",
     "angular-bootstrap": "~0.13.0"
+  },
+  "resolutions":{
+    "angular": "~1.4.1"
   }
 }
