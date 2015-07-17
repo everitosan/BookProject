@@ -1,2 +1,1 @@
-grunt buildProd
-sails lift
+sails lift --prod
