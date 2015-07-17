@@ -1,0 +1,2 @@
+grunt buildProd
+sails lift
