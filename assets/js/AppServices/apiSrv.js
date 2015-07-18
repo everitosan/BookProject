@@ -18,6 +18,8 @@
             }
 
             function post(url, data) {
+                data = data || {};
+                
             	var defered= $q.defer();
             	
             	$http.post(url, data)

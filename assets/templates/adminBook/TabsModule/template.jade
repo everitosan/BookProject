@@ -1,18 +1,19 @@
 div(ng-controller="tabsController")
 		ul#tabs
-			li(ng-click="setActive(1)") About	
-			li(ng-click="setActive(2)") Work	
-			li(ng-click="setActive(3)") Contact	
+			li(ng-class="{active: activeTab(1)}" ng-click="setActive(1)") About	
+			li(ng-class="{active: activeTab(2)}" ng-click="setActive(2)") Work	
+			li(ng-class="{active: activeTab(3)}" ng-click="setActive(3)") Contact	
 		section
 			article(ng-show="activeTab(1)")
 				div(ng-repeat="card in about" class="element")
 					p {{card.description}}
 					p {{card.photo}}
-					button.btn.btn-default.btn-sm.btn-primary(type='button')
+					button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index)")
 						|	UPDATE
-					button.btn.btn-default.btn-sm.btn-danger(type='button')
+					button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index)")
 						|	DELETE
-				span(ng-show="!hasAbout", ng-click="aboutModal()") addNew
+				button.btn.btn-default.btn-sm.btn-danger(type='button', ng-show="!hasAbout", ng-click="postModal()")
+						|	ADD
 			article(ng-show="activeTab(2)")
 				p Work
 			article(ng-show="activeTab(3)")
