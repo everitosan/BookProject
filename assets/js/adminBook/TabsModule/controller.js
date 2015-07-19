@@ -4,60 +4,82 @@
 	angular.module('adminBook.controllers')
 		.controller('tabsController', 
 			['$scope', 'apiSrv', '$modal',function ($scope, apiSrv, $modal) {
-				$scope.about = [];
-				$scope.work = [];
-				$scope.contact = [];
+				$scope.models = [
+					[],//about
+					[],//works
+					[],//prjects
+					[]//contact
+				];
+
 				$scope.hasAbout = false;
 
 				var Model = {};
-				var genIndex = 0;
+				var genIndex = 0,
+					genPar = 0;
+
+				var map = [
+						{tmp: 'aboutModal.html', ctrl: 'aboutModalController', model: $scope.about },
+						{tmp: 'workModal.html', ctrl: 'workModalController', model: $scope.works },
+						{tmp: 'projectModal.html', ctrl: 'projectModalController', model: $scope.projects },
+						{tmp: 'contactModal.html', ctrl: 'contactModalController', model: $scope.contact }
+					];
 
 				function initData() {
 					apiSrv.get('/about').then(function(data){
-						$scope.about = data;
+						$scope.models[0] = data;
 						if(data.length > 0) {
 							$scope.hasAbout = true;
 						}
 					});
 
 					apiSrv.get('/work').then(function(data){
-						$scope.work = data;
+						$scope.models[1] = data;
+					});
+
+					apiSrv.get('/project').then(function(data){
+						$scope.models[2] = data;
+
 					});
 
 					apiSrv.get('/contact').then(function(data){
-						$scope.contact = data;
+						$scope.models[3] = data;
 					});
 				}
 
-				$scope.postModal= function(){
-					var postM =  new modalClass('postTmpl.html', 'aboutModalController');
+				$scope.postModal= function(par){
+					Model = {};
+					genPar = par;
+					var postM =  new modalClass(map[par].tmp, map[par].ctrl, 'new');
 					postM.open();	
 				};
 
-				$scope.updateModal= function(index){
-					Model = $scope.about[index];
-
-					var postM =  new modalClass('updateTmpl.html', 'aboutModalController');
-					postM.open();
-				};
-
-				$scope.deleteModal= function(index){
+				$scope.updateModal= function(index, par){
 					genIndex = index;
-					Model = $scope.about[index];
-					var postM =  new modalClass('deleteTmpl.html', 'aboutModalController');
+					genPar = par;
+					Model = $scope.models[par][index];
+					var postM =  new modalClass(map[par].tmp, map[par].ctrl, 'update');
+					postM.open();
+				};
+
+				$scope.deleteModal= function(index, par){
+					genIndex = index;
+					genPar = par;
+					Model = $scope.models[par][index];
+					var postM =  new modalClass(map[par].tmp, map[par].ctrl, 'delete');
 					postM.open();
 				};
 
 
-				function modalClass (tmplName, controller) {
+				function modalClass (tmplName, controller, mode) {
 					this.tmplName = tmplName;
 
 					this.modalConf = {
-						templateUrl: 'templates/adminBook/AboutModule/' + this.tmplName,
+						templateUrl: 'templates/adminBook/Modals/' + this.tmplName,
 						controller: controller,
 						backdrop: false,
 						resolve: {
 							Model : function () {
+								Model.mode = mode;
 								return Model;
 							}
 						},
@@ -68,15 +90,25 @@
 
 					this.open = function(){ return this.modalIntsance; };
 
-					this.modalIntsance.result.then(function(Model){
-						if(Model.mod === "D") {
-							$scope.about[genIndex] = null;
+					this.modalIntsance.result.then(function(ModelRet){
+						if(ModelRet.mod === "D") {  //Delete return
+							if (ModelRet.description) {
+								$scope.hasAbout = false;
+							}
+							
+							$scope.models[genPar].splice(genIndex, 1);
 						}
-						else {
-							$scope.about[genIndex] = Model;
+						else if(ModelRet.mod === "U") {  //Update return
+							$scope.models[genPar][genIndex] = ModelRet;
 						}
+						else {					//Create return
+							$scope.models[genPar].push(ModelRet);
+							if (ModelRet.description) {
+								$scope.hasAbout = true;
+							}
+						}
+						
 					}, function(){
-						console.log('dismissed');
 					});
 				}
 

@@ -5,16 +5,45 @@ div(ng-controller="tabsController")
 			li(ng-class="{active: activeTab(3)}" ng-click="setActive(3)") Contact	
 		section
 			article(ng-show="activeTab(1)")
-				div(ng-repeat="card in about" class="element")
+				div(ng-repeat="card in models[0]" class="element", ng-show="hasAbout")
 					p {{card.description}}
 					p {{card.photo}}
-					button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index)")
-						|	UPDATE
-					button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index)")
-						|	DELETE
-				button.btn.btn-default.btn-sm.btn-danger(type='button', ng-show="!hasAbout", ng-click="postModal()")
+					div
+						button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 0)")
+							|	UPDATE
+					div
+						button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index, 0)")
+							|	DELETE
+				button.btn.pull-right.btn-default.btn-sm.btn-warning(type='button', ng-show="!hasAbout", ng-click="postModal(0)")
 						|	ADD
 			article(ng-show="activeTab(2)")
-				p Work
+				h2 Area of Work
+				div.container-fluid
+					div.row(ng-repeat="work in models[1]")
+						div.col-xs-6
+							div {{work.name}}
+						div.col-xs-3
+							button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 1)")
+								|	UPDATE
+						div.col-xs-3
+							button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index, 1)")
+								|	DELETE
+					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(1)")
+							|	ADD
+				h2 Projects
+				div.container-fluid
+					div.row(ng-repeat="project in models[2]")
+						div.col-xs-2
+							p {{project.title}}
+						div.col-xs-4
+							p {{project.detail}}
+						div.col-xs-2
+							p {{project.url}}
+						div.col-xs-2
+							p {{project.img}}
+						div.col-xs-2
+							p {{project.work.name}}
+					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(2)")
+						|	ADD
 			article(ng-show="activeTab(3)")
-				p Contact
+				h2 Contact

@@ -5,7 +5,7 @@
 		.controller('signInController', 
 			['$scope',function ($scope) {
 				$scope.logged = false;
-				var active = 1;
+				var active = 2;
 
 				var user = {};
 				$scope.$on('event:google-plus-signin-success', function (event,authResult) {

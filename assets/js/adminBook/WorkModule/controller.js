@@ -2,19 +2,18 @@
 	'use strict';
 
 	angular.module('adminBook.controllers')
-		.controller('aboutModalController', 
+		.controller('workModalController', 
 			['$scope', '$modalInstance', 'Model', 'apiSrv', function ($scope, $modalInstance, Model, apiSrv) {
 				$scope.Model = Model;
 				var _csrf = '';
 
 				getToken();
 
-				console.log($scope.Model);
-
 				$scope.post = function () {
 					$scope.Model._csrf=_csrf;
-					apiSrv.post('/about/create/', $scope.Model).then(function(){
+					apiSrv.post('/work/create/', $scope.Model).then(function(data){
 						$scope.Model.mod = null;	
+						$scope.Model = data;
 						$modalInstance.close($scope.Model);
 						removeModal();
 					});
@@ -22,15 +21,18 @@
 
 				$scope.put = function() {
 					$scope.Model._csrf=_csrf;
-					apiSrv.post('/about/update/'+ Model.id , $scope.Model).then(function(){
-						$modalInstance.close();
+					apiSrv.post('/work/update/'+ Model.id , $scope.Model).then(function(data){
+						$scope.Model = data;
+						$scope.Model.mod = "U";
+						$modalInstance.close($scope.Model);
 						removeModal();
 					});
 				};
 
 				$scope.delete = function() {
 					$scope.Model._csrf=_csrf;
-					apiSrv.post('/about/destroy/'+ Model.id, $scope.Model).then(function(){
+					apiSrv.post('/work/destroy/'+ Model.id, $scope.Model).then(function(data){
+						$scope.Model = data;
 						$scope.Model.mod = "D";
 						$modalInstance.close($scope.Model);
 						removeModal();
