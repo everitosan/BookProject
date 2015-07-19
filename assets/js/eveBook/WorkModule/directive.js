@@ -28,11 +28,17 @@
 		var scale = 5;
 		var x = width*.4 - (this.getAttribute('x') * scale);
 		var y = height*.5 - (this.getAttribute('y') * scale);
+		var id = this.getAttribute('data');
+		var dataProject = {};
 
 		TweenMax.to(canvasGroup, 1, {scale: scale, x:x , y:y, ease: Circ.easeOut});
 		TweenMax.to('#detailWork', 1, {right: 0, ease: Circ.easeOut});
+		
+		dataProject = globalData.filter(function ( dataProject ) {
+		    return dataProject.id === id ;
+		})[0];
 
-		$rootScope.$broadcast('showDetailProject', globalData[ this.getAttribute('data') -1 ]);
+		$rootScope.$broadcast('showDetailProject', dataProject);
 	}
 
 	function printD3(data) {

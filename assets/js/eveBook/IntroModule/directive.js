@@ -29,12 +29,15 @@
 			function step2(){
 				var video = document.getElementById('videoBg');
 				video.pause();
+
 				audioClick.play();
 
 				TweenMax.to('#sub-wrapper', 1, { width: '75%', ease: Power0.easeNone});
 				TweenMax.to('#menu', 1, { width: '25%', ease: Power0.easeNone});
 				TweenMax.to('#menu nav', 1, { opacity: 1, ease: Power0.easeNone});
 		
+				var myste = document.getElementById('myste');
+				myste.play();
 			}
 			
 			function hoverEnter(){
