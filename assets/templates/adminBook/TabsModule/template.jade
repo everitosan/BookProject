@@ -33,16 +33,28 @@ div(ng-controller="tabsController")
 				h2 Projects
 				div.container-fluid
 					div.row(ng-repeat="project in models[2]")
-						div.col-xs-2
-							p {{project.title}}
-						div.col-xs-4
-							p {{project.detail}}
-						div.col-xs-2
-							p {{project.url}}
-						div.col-xs-2
-							p {{project.img}}
-						div.col-xs-2
-							p {{project.work.name}}
+						div.row
+							div.col-xs-6
+								.row
+									{{project.title}}
+								.row
+									{{project.detail}}
+							div.col-xs-6
+								img(ng-src="{{project.img}}")
+						div.row
+							div.col-xs-6
+								{{project.url}}
+							div.col-xs-6
+								{{project.work.name}}
+						div.row
+							div.col-xs-6
+								
+							div.col-xs-3
+								button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 2)")
+									|	UPDATE
+							div.col-xs-3
+								button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index, 2)")
+									|	DELETE
 					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(2)")
 						|	ADD
 			article(ng-show="activeTab(3)")

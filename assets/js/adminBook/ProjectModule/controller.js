@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('adminBook.controllers')
-		.controller('aboutModalController', 
+		.controller('projectModalController', 
 			['$scope', '$modalInstance', 'Model', 'apiSrv', function ($scope, $modalInstance, Model, apiSrv) {
 				$scope.Model = Model;
 				var _csrf = '';
@@ -11,7 +11,7 @@
 
 				$scope.post = function () {
 					$scope.Model._csrf=_csrf;
-					apiSrv.post('/about/create/', $scope.Model).then(function(data){
+					apiSrv.post('/project/create/', $scope.Model).then(function(data){
 						$scope.Model.mod = null;	
 						$scope.Model = data;
 						$modalInstance.close($scope.Model);
@@ -21,7 +21,7 @@
 
 				$scope.put = function() {
 					$scope.Model._csrf=_csrf;
-					apiSrv.post('/about/update/'+ Model.id , $scope.Model).then(function(data){
+					apiSrv.post('/project/update/'+ Model.id , $scope.Model).then(function(data){
 						$scope.Model = data;
 						$scope.Model.mod = "U";
 						$modalInstance.close($scope.Model);
@@ -31,7 +31,7 @@
 
 				$scope.delete = function() {
 					$scope.Model._csrf=_csrf;
-					apiSrv.post('/about/destroy/'+ Model.id, $scope.Model).then(function(data){
+					apiSrv.post('/project/destroy/'+ Model.id, $scope.Model).then(function(data){
 						$scope.Model = data;
 						$scope.Model.mod = "D";
 						$modalInstance.close($scope.Model);

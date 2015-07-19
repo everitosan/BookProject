@@ -57,6 +57,6 @@
 					apiSrv.get('csrfToken').then(function(data){
 						_csrf = data._csrf;
 					});
-				}
+				}			
 			}]);
 })();

@@ -48,15 +48,22 @@
 
 				$scope.postModal= function(par){
 					Model = {};
+					if(par == 2){
+						Model.works=$scope.models[1];
+					}
 					genPar = par;
 					var postM =  new modalClass(map[par].tmp, map[par].ctrl, 'new');
-					postM.open();	
+					postM.open();
+
 				};
 
 				$scope.updateModal= function(index, par){
 					genIndex = index;
 					genPar = par;
 					Model = $scope.models[par][index];
+					if(par == 2){
+						Model.works=$scope.models[1];
+					}
 					var postM =  new modalClass(map[par].tmp, map[par].ctrl, 'update');
 					postM.open();
 				};
