@@ -1,14 +1,11 @@
+include forms/aboutForm.jade
+
 div
 	div(ng-show="isMode('new')" class="container-fluid")
 		h2.modal-header Create
 
-		form.modal-body(novaliadte)
-			div.row
-				label Description:
-				textarea.col-xs-12(type="text" ng-model="Model.description")
-			div.row
-				label Photo:
-				input.col-xs-12(type="text" ng-model="Model.photo")
+		+form()
+
 		div.modal-footer
 			button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="post()")
 				|	CREATE
@@ -18,13 +15,8 @@ div
 	div(ng-show="isMode('update')" class="container-fluid")
 		h2.modal-header Update
 
-		form.modal-body(novaliadte)
-			div.row
-				label Description:
-				textarea.col-xs-12(type="text" ng-model="Model.description")
-			div.row
-				label Photo:
-				input.col-xs-12(type="text" ng-model="Model.photo")
+		+form()
+
 		div.modal-footer
 			button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="put()")
 				|	PUT

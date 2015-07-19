@@ -1,23 +1,10 @@
+include forms/projectForm.jade
+
 div
 	div(ng-show="isMode('new')" class="container-fluid")
 		h2.modal-header Create
 
-		form.modal-body(novaliadte)
-			div.row
-				label Title:
-				input.col-xs-12(type="text" ng-model="Model.title")
-			div.row
-				label Detail:
-				textarea.col-xs-12(type="text" ng-model="Model.detail")
-			div.row
-				label Url:
-				input.col-xs-12(type="text" ng-model="Model.url")
-			div.row
-				label Image:
-				input.col-xs-12(type="text" ng-model="Model.img")
-			div.row
-				label Work:
-				select.col-xs-12(type="text" ng-model="Model.work" ng-options="work.name for work in Model.works" )
+		+form()
 
 		div.modal-footer
 			button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="post()")
@@ -28,22 +15,8 @@ div
 	div(ng-show="isMode('update')" class="container-fluid")
 		h2.modal-header Update
 
-		form.modal-body(novaliadte)
-			div.row
-				label Title:
-				input.col-xs-12(type="text" ng-model="Model.title")
-			div.row
-				label Detail:
-				textarea.col-xs-12(type="text" ng-model="Model.detail")
-			div.row
-				label Url:
-				input.col-xs-12(type="text" ng-model="Model.url")
-			div.row
-				label Image:
-				input.col-xs-12(type="text" ng-model="Model.img")
-			div.row
-				label Work:
-				select.col-xs-12(type="text" ng-model="Model.work" ng-options="work.name for work in Model.works" )
+		+form()
+		
 		div.modal-footer
 			button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="put()")
 				|	PUT
