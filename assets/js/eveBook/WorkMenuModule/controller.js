@@ -19,18 +19,18 @@
 					$rootScope.$broadcast('toggleXClass', {});
 				};
 
-				$scope.getProjects = function(index){
+				$scope.getProjects = function(index, id){
 					$('#clicked')[0].play();
-
+					
 					index++;
 					if(index === $scope.catActive) {
 						return false;
 					}
-					
+	
 					$scope.catActive = index;
 					$scope.showAllCats = !$scope.showAllCats;
 					$rootScope.$broadcast('toggleXClass', {});
-					apiSrv.get('/work/'+index+'/projects')
+					apiSrv.get('/work/'+id+'/projects')
 						.then(function(data) {
 							$rootScope.$broadcast('dataObtained', data);
 						});

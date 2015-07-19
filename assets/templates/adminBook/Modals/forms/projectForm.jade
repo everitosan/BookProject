@@ -1,0 +1,17 @@
+mixin form()
+	form.modal-body(novaliadte)
+		div.row
+			label Title:
+			input.col-xs-12(type="text" ng-model="Model.title")
+		div.row
+			label Detail:
+			textarea.col-xs-12(type="text" ng-model="Model.detail")
+		div.row
+			label Url:
+			input.col-xs-12(type="text" ng-model="Model.url")
+		div.row
+			label Image:
+			input.col-xs-12(type="text" ng-model="Model.img")
+		div.row
+			label Work:
+			select.col-xs-12(type="text" ng-model="Model.work" ng-options="work.name for work in Model.works" )

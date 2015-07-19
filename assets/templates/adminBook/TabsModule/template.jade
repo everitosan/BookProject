@@ -1,19 +1,84 @@
 div(ng-controller="tabsController")
 		ul#tabs
-			li(ng-click="setActive(1)") About	
-			li(ng-click="setActive(2)") Work	
-			li(ng-click="setActive(3)") Contact	
+			li(ng-class="{active: activeTab(1)}" ng-click="setActive(1)") About	
+			li(ng-class="{active: activeTab(2)}" ng-click="setActive(2)") Work	
+			li(ng-class="{active: activeTab(3)}" ng-click="setActive(3)") Contact	
 		section
 			article(ng-show="activeTab(1)")
-				div(ng-repeat="card in about" class="element")
-					p {{card.description}}
-					p {{card.photo}}
-					button.btn.btn-default.btn-sm.btn-primary(type='button')
-						|	UPDATE
-					button.btn.btn-default.btn-sm.btn-danger(type='button')
-						|	DELETE
-				span(ng-show="!hasAbout", ng-click="aboutModal()") addNew
+				div(ng-repeat="card in models[0]" class="element", ng-show="hasAbout")
+					p.text-justify {{card.description}}
+					p.text-center {{card.photo}}
+					div
+						button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 0)")
+							|	UPDATE
+					div
+						button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index, 0)")
+							|	DELETE
+				button.btn.pull-right.btn-default.btn-sm.btn-warning(type='button', ng-show="!hasAbout", ng-click="postModal(0)")
+						|	ADD
 			article(ng-show="activeTab(2)")
-				p Work
+				h2.text-center.bg-danger2 Area of Work
+				div.container-fluid
+					div.row(ng-repeat="work in models[1]")
+						div.col-xs-6
+							div {{work.name}}
+						div.col-xs-3
+							button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 1)")
+								|	UPDATE
+						div.col-xs-3
+							button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index, 1)")
+								|	DELETE
+					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(1)")
+							|	ADD
+				h2.text-center.bg-danger2 Projects
+				div.container-fluid
+					div.row(ng-repeat="project in models[2]")
+						div.row
+							div.col-xs-6
+								.h3.text-left
+									{{project.title}}
+								.text-justify
+									{{project.detail}}
+							img.col-xs-6(ng-src="{{project.img}}")
+						div.row
+							div.col-xs-6.text-right
+								div {{project.url}}
+							div.col-xs-6.text-center
+								div {{project.work.name}}
+						div.row
+							div.col-xs-6
+								
+							div.col-xs-3
+								button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 2)")
+									|	UPDATE
+							div.col-xs-3
+								button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index, 2)")
+									|	DELETE
+					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(2)")
+						|	ADD
 			article(ng-show="activeTab(3)")
-				p Contact
+				div.container-fluid
+					div.row(ng-repeat="contact in models[3]")
+						div.row
+							div.col-xs-4.text-center
+								{{contact.residence}}
+							div.col-xs-4.text-center
+								{{contact.telephone}}
+							div.col-xs-4.text-center
+								{{contact.email}}
+								
+						div.row
+							div.col-xs-12.text-justify
+								div {{contact.text}}
+
+						div.row
+							div.col-xs-6
+								
+							div.col-xs-3
+								button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 3)")
+									|	UPDATE
+							div.col-xs-3
+								button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="deleteModal($index, 3)")
+									|	DELETE
+					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(3)")
+						|	ADD

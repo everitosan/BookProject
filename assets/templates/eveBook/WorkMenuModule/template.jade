@@ -9,4 +9,4 @@ nav(id="workMenu" ng-controller="WorkMenuController")
 
 	ul(id="catContainer")
 		div(ng-if="isCatActive($index) || showAllCats  " class="catContainerLink" ng-repeat=" cat in categories track by $index")
-			li(ng-click="getProjects($index)") {{cat.name}}
+			li(ng-click="getProjects($index, cat.id)") {{cat.name}}

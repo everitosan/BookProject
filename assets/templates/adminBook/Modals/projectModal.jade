@@ -1,0 +1,35 @@
+include forms/projectForm.jade
+
+div
+	div(ng-show="isMode('new')" class="container-fluid")
+		h2.modal-header Create
+
+		+form()
+
+		div.modal-footer
+			button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="post()")
+				|	CREATE
+			button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="close()")
+				|	CANCEL
+
+	div(ng-show="isMode('update')" class="container-fluid")
+		h2.modal-header Update
+
+		+form()
+		
+		div.modal-footer
+			button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="put()")
+				|	PUT
+			button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="close()")
+				|	CANCEL
+
+	div(ng-show="isMode('delete')" class="container-fluid")
+		h2.modal-header Delete
+		.modal-body
+			|	Are you sure ?
+		div.modal-footer
+			button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="delete()")
+				|	DELETE
+			button.btn.btn-default.btn-sm.btn-danger(type='button', ng-click="close()")
+				|	CANCEL
+

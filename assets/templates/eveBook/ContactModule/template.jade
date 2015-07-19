@@ -1,7 +1,11 @@
-article#contact
+article(id="contact" ng-controller="contactController")
 	div.diamondParent
 		div.diamondContact
 			img(class="littleDeatilBox" id="topBox" src="images/diamond2.png")
 			img(class="littleDeatilBox" id="bottomBox" src="images/diamond2.png")
-	p
+			div.contactInfo
+				p {{contact.residence}}
+				p {{contact.telephone}}
+				p {{contact.email}}
+	p {{contact.text}}
 	img(src="images/lineDown.jpg" class="lineDown" alt="lineDown")
