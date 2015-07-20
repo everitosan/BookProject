@@ -75,27 +75,26 @@ svg {
 
 		#sub-wrapper {
 			width: 100% !important;
-			#main {
-				article {
-					margin-top: 1em;
-				}
-			}
+			
 		}
 	}
 }
 @media screen and (max-width: 736px) and(orientation: portrait) { //iphone 6
 	#wrapper {
-		overflow-y: scroll; 
-		height: auto;
 		min-height: 100%;
 		#sub-wrapper #main {
-			height: auto;
+				overflow-y: scroll; 
 			article {
-				height: auto;
+		  	margin-bottom: 3em;
 				.lineDown {
 					position: fixed;
 				}
 			}
 		} 
+	}
+}
+@media screen and (max-width: 736px) and(orientation: landscape) { //iphone 6
+	#wrapper #sub-wrapper #main {
+			height: 86%;
 	}
 }

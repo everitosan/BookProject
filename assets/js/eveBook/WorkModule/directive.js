@@ -59,7 +59,11 @@
 
 		var force = d3.layout.force()
 			.size([width, height])
-			.linkDistance(function(){ return Math.floor(Math.random()* ( (width*.6) - 10 + 1)) + 10 })
+			.linkDistance(function(){ 
+				var anch = 0;
+				(width < height)? anch=width : anch=height;
+				return Math.floor(Math.random()* ( (anch*.6) - 10 + 1)) + 10 
+			})
 			.nodes(data)
 			.links(links);
 

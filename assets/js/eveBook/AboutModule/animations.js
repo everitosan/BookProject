@@ -13,7 +13,7 @@
 				
 					tl
 						.to(photo, 2, {left:0, opacity: .9, delay: 1, ease:Circ.easeOut})
-						.to(photo, 1,{height: 215, ease:Power1.easeOut})
+						.to(photo, 1,{height: 213, ease:Power1.easeOut})
 						.to('#realPhoto', 1.5 ,{ rotation: 45, scale: 1.5, ease: Circ.easeOut}, "photo")
 						.to(photo, 1.5, {rotation: -45, ease:Circ.easeOut}, "photo")
 						.to('.description', 1, {opacity: 1, ease: Power2.easeOut, onComplete: doneFn});
