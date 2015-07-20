@@ -66,6 +66,30 @@
 	}
 }
 
-@media screen and (max-width: 780px) {
-	
+@media screen and (max-width: 736px) and (orientation: landscape) { //iphone 6 plus
+
+	#about{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		.photoContainer {
+				flex: 0.5;
+				margin: 0;
+				height: 100%;
+		}
+		.description {
+				flex: 1;
+				display: flex;
+			  flex-direction: column;
+			  justify-content: center;
+			  p {
+			  	width: 95%;
+			  }
+		}
+	}
+}
+@media screen and (max-width: 650px) and (orientation: landscape) { 
+	#about .photoContainer .dottedLine #aboutPhoto {
+		transform: scale(.5,.5);
+	}
 }

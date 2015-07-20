@@ -8,8 +8,6 @@
 
 				definitionObject.enter = function(element,doneFn){
 					TweenMax.to('#logo', 4,{ delay: 4, 'opacity':1, "filter": "blur(0)" ,ease: Circ.easeOut, onComplete: doneFn});
-					
-					//console.log('ala');
 				};
 
 				definitionObject.leave = function(element,doneFn){

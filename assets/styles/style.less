@@ -83,18 +83,19 @@ svg {
 		}
 	}
 }
-@media screen and (max-width: 500px)  {
+@media screen and (max-width: 736px) and(orientation: portrait) { //iphone 6
 	#wrapper {
 		overflow-y: scroll; 
+		height: auto;
+		min-height: 100%;
 		#sub-wrapper #main {
 			height: auto;
 			article {
 				height: auto;
+				.lineDown {
+					position: fixed;
+				}
 			}
 		} 
-	}
-}
-@media screen and (max-width: 500px) and (orientation: landscape) {
-	#wrapper {
 	}
 }
