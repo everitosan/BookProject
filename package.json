@@ -7,9 +7,9 @@
   "dependencies": {
     "bootstrap-less": "^3.3.8",
     "bower": "^1.4.1",
-    "chai": "^3.0.0",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
+    "grunt-autoprefixer": "^3.0.3",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-coffee": "~0.10.1",
@@ -25,13 +25,10 @@
     "grunt-sync": "~0.0.4",
     "include-all": "~0.1.3",
     "jade": "^1.11.0",
-    "less-plugin-autoprefix": "^1.4.2",
-    "mocha": "^2.2.5",
     "rc": "~0.5.0",
     "sails": "~0.11.0",
     "sails-disk": "~0.10.0",
-    "sails-mongo": "^0.11.2",
-    "supertest": "^1.0.1"
+    "sails-mongo": "^0.11.2"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -45,6 +42,9 @@
   "author": "everitoSan",
   "license": "",
   "devDependencies": {
-    "grunt-contrib-jade": "^0.14.1"
+    "grunt-contrib-jade": "^0.14.1",
+    "mocha": "^2.2.5",
+    "chai": "^3.0.0",
+    "supertest": "^1.0.1"
   }
 }
