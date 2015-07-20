@@ -70,7 +70,31 @@ svg {
 }
 
 @media screen and (max-width: 1080px) {
-	#sub-wrapper {
-		width: 100% !important;
+
+	#wrapper {
+
+		#sub-wrapper {
+			width: 100% !important;
+			#main {
+				article {
+					margin-top: 1em;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 500px)  {
+	#wrapper {
+		overflow-y: scroll; 
+		#sub-wrapper #main {
+			height: auto;
+			article {
+				height: auto;
+			}
+		} 
+	}
+}
+@media screen and (max-width: 500px) and (orientation: landscape) {
+	#wrapper {
 	}
 }

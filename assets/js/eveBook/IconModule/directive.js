@@ -2,7 +2,8 @@
 	angular.module('eveBook.directives')
 	.directive('iconDirective', [function(){
     function link (scope, element) {
-      $(element).hover(hover, unhover);
+      $(element).on('mouseenter', hover);
+      $(element).on('mouseleave', unhover);
     }
 
     function hover () {
