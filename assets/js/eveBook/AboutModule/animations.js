@@ -5,12 +5,12 @@
 		.animation('.aboutAnimation', function () {
 
 				var definitionObject  = {};
-				var tl = new TimelineMax();
 				var photo;
 
 				definitionObject.enter = function(element, doneFn){
 					photo = document.querySelector('.dottedLine');
 				
+				var tl = new TimelineMax();
 					tl
 						.to(photo, 2, {left:0, opacity: .9, delay: 1, ease:Circ.easeOut})
 						.to(photo, 1,{height: 213, ease:Power1.easeOut})

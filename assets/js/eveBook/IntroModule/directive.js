@@ -27,8 +27,10 @@
 			}
 
 			function step2(){
-				var video = document.getElementById('videoBg');
-				video.pause();
+				if(!isMobile()) {
+					var video = document.getElementById('videoBg').childNodes[1];
+					video.pause();
+				}
 
 				audioClick.play();
 
