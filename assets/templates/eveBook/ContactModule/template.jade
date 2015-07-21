@@ -5,7 +5,11 @@ article(id="contact" ng-controller="contactController")
 			img(class="littleDeatilBox" id="bottomBox" src="images/diamond2.png")
 			div.contactInfo
 				p {{contact.residence}}
-				p {{contact.telephone}}
-				p {{contact.email}}
+				p
+					a(href="tel:{{contact.telephone}}") 
+						|	{{contact.telephone}}
+				p 
+					a(href="mailto:{{contact.email}}?Subject=Hi!") 
+						|	{{contact.email}}
 	p {{contact.text}}
 	img(src="images/lineDown.jpg" class="lineDown" alt="lineDown")
