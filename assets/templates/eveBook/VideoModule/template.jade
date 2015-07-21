@@ -1,0 +1,5 @@
+div(id="videoBg" ng-controller="videoController")
+	video(ng-if="!isMobile" autoplay preload  loop)
+		source(src="media/Sec3_1.webm")
+		source(src="media/Sec3_1.mp4")
+	div(ng-if="isMobile")

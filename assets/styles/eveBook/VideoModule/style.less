@@ -1,0 +1,31 @@
+#videoBg {
+	height: auto;
+	position: fixed;
+	top: -11px;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	div {
+		background: url('../images/videoBg.jpg');
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+	}
+}
+@media screen and (max-width: 736px) {
+	#videoBg{
+	}
+}
+
+@media screen and (max-width: 736px) and(orientation: portrait) { //iphone 6
+	#videoBg div{
+		background-size: auto 100%;
+	}
+}
+
+@media screen and (max-width: 736px) and(orientation: landscape) { //iphone 6
+	#videoBg div{
+		background-size: 120% auto;
+	}
+}

@@ -1,87 +1,34 @@
 (function(){
-	'use strict';
-
 	angular.module('eveBook.directives')
-		.directive("iconDirective",function(){
+	.directive('iconDirective', [function(){
+    function link (scope, element) {
 
-			var $element, loadAudio, filter, filterChild;
+      $('#menuMobile').on('click', toggleMenu);
+      $(element).on('mouseenter', hover);
+      $(element).on('mouseleave', unhover);
+    }
 
-			function link(scope, element) {
-				loadAudio = new  Audio('/media/incidentals/Zing 03.mp3');
-				$element = $(element);
-				var arrIzq = ['facebook', 'github', 'behance'];
-				var arrDer = ['share', 'sound'];
+    function hover () {
+      $(this).children().addClass('active');
+    }
 
-				loadSvgIcons(arrIzq, '.left');
-				loadSvgIcons(arrDer, '.right');
+    function unhover() {
+      $(this).children().removeClass('active');
+    }
+    function toggleMenu() {
+      TweenMax.to('#menu', 1, {right: 0,  ease: Circ.easeOut});
+    }
 
-				setTimeout(function(){
-					$('#icons').css('opacity', 1);
-				}, 500);
-			}
+	var definitionObject = {
+        restrict: 'E',
+        scope: {
+        	src: '@'
+        },
+        link: link,
+        templateUrl:'templates/eveBook/IconModule/template.html'
+      };
 
-			function shutUpVideo() {
-				var video = document.getElementById('videoBg');
-				video.volume = !video.volume;
-			}
+      return definitionObject;
 
-			function iconBlured () {
-				this.attr({ filter: filter });
-				Snap.animate( 0, 10, function( value ) { filterChild.attributes[0].value = value + ',' + value;  }, 1000 );
-				loadAudio.play();
-			}
-
-			function iconNotBlured () {
-				this.attr({ filter: null });
-				loadAudio.pause();
-				loadAudio.currentTime=0;
-			}
-
-			function iconColored() {
-				this.toggleClass('active');
-				this.attr({ filter: null });
-			}
-
-			function loadSvgIcons (arr, context) {
-				arr.forEach(function(icon, index, arr){
-					var svg = $('<svg id ="'+icon+'" ></svg>');
-					$($element.find(context)).append(svg);
-
-	
-					var Icon = Snap('#'+icon);
-					filter = Icon.filter(Snap.filter.blur(1, 1)); //filter for blur click
-					filterChild = filter.node.firstChild;
-
-					Snap.load("images/icons/"+icon+".svg", function(vector){
-						var iconLoaded = vector.select('g');
-
-						var myMatrix = new Snap.Matrix();
-						myMatrix.scale(.7,.7);
-						
-						var initialState = {
-							'transform': myMatrix
-						};	
-
-						Icon.click(iconColored);
-						
-						Icon.hover(iconBlured, iconNotBlured);
-
-						iconLoaded.attr(initialState);
-						Icon.append(iconLoaded);
-
-						$('#sound').attr('class', 'active');
-						$('#sound').on('click', shutUpVideo);
-					});
-				});
-			}
-
-
-
-			var definitionObject = {
-				templateUrl: 'templates/eveBook/IconModule/template.html',
-				restrict: 'E',
-				link: link
-			};
-			return definitionObject;
-		});
+	}]);
 })();

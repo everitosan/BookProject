@@ -6,11 +6,14 @@
 		function link (scope, element) {
 			audio = new  Audio('/media/incidentals/2138.ogg');
 			audioClick = $('#clicked')[0];
-			$(element).find('li').hover(playSound, stopSound).click(playClick);
+			$(element).find('li').hover(playSound, stopSound).click(Click);
 			$(element).mouseleave(selectActive);
 			selectFirst();
 
-			$('#aboutLink').click(animateAbout);
+			if($('#menu nav').css('opacity') == 1) {
+				$(element).find('li').click(hideMenu);
+			}
+
 		}
 
 		function selectActive() {
@@ -36,7 +39,11 @@
 			audio.currentTime = 0;
 		}
 
-		function playClick() {
+		function hideMenu() {
+      TweenMax.to('#menu', 1, {right: '100%',  ease: Circ.easeOut});
+		}
+
+		function Click() {
 			audioClick.play();
 			colorBG(this);
 		}
@@ -51,11 +58,6 @@
 			$('#selectedImg').css('top', top);
 		}
 
-		
-		function animateAbout() {
-			
-			
-		}
 
 	var definitionObject = {
         restrict: 'E',

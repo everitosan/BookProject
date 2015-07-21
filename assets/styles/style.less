@@ -8,13 +8,6 @@ body, html {
 	font-family:  'Avenir Next Condensed';
 }
 
-video#videoBg {
-	height: auto;
-	position: fixed;
-	top: -11px;
-	left: 0;
-}
-
 #wrapper {
 	background: url('/images/cu.png'), rgba(0,0,0,.3);
 	width: 100%;
@@ -70,7 +63,31 @@ svg {
 }
 
 @media screen and (max-width: 1080px) {
-	#sub-wrapper {
-		width: 100% !important;
+
+	#wrapper {
+
+		#sub-wrapper {
+			width: 100% !important;
+			
+		}
+	}
+}
+@media screen and (max-width: 736px) and(orientation: portrait) { //iphone 6
+	#wrapper {
+		min-height: 100%;
+		#sub-wrapper #main {
+				overflow-y: scroll; 
+			article {
+		  	margin-bottom: 3em;
+				.lineDown {
+					position: fixed;
+				}
+			}
+		} 
+	}
+}
+@media screen and (max-width: 736px) and(orientation: landscape) { //iphone 6
+	#wrapper #sub-wrapper #main {
+			height: 86%;
 	}
 }

@@ -1,12 +1,9 @@
 <div ng-app="eveBook">
-	<video id="videoBg" preload autoplay loop>
-		<source src="media/Sec3_1.webm">
-		<source src="media/Sec3_1.mp4">
-	</video>
+	<video-directive></video-directive>
 
 	<div id="wrapper" ng-controller="NavController">
 		<div id="sub-wrapper">
-			<icon-directive> </icon-directive>
+			<nav-directive> </nav-directive>
 			<section id="main">
 				<intro-directive ng-if="isActive(0)" class="introAnimation"></intro-directive>
 				<about-directive ng-if="isActive(1)" class="aboutAnimation"></about-directive>	
