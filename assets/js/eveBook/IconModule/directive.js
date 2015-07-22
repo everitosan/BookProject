@@ -25,7 +25,8 @@
 	var definitionObject = {
         restrict: 'E',
         scope: {
-        	src: '@'
+        	src: '@',
+          link: '@'
         },
         link: link,
         templateUrl:'templates/eveBook/IconModule/template.html'
