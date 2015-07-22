@@ -28,6 +28,7 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
+  'js/vendor/marked/marked.min.js',
   'js/vendor/angular/*.js',
   'js/vendor/angular-route/*.js',
   'js/vendor/angular-animate/*.js',
@@ -35,6 +36,7 @@ var jsFilesToInject = [
   'js/vendor/d3/*.js',
   'js/vendor/snap.svg/**/*.js',
   'js/vendor/greensock-js/**/**/*.js',
+  'js/vendor/angular-md/angular-md.js',
   'js/app.js',
 
   // All of the rest of your client-side js files

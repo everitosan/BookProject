@@ -14,5 +14,6 @@ article(id="contact" ng-controller="contactController")
 					p 
 						a(href="mailto:{{contact.email}}?Subject=Hi!") 
 							|	{{contact.email}}
-		p.contacText {{contact.text}}
+		div.contacText 
+			md(ng-model="contact.text")
 		img(src="images/lineDown.jpg" class="lineDown" alt="lineDown")

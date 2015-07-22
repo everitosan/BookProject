@@ -18,7 +18,7 @@ article(id="work" ng-controller="workController")
 					+gradient()
 					text(x="100%" y="40px" text-anchor="end" stroke=" url('#myLinearGradient1')") {{dataDetail.title}}
 		div(class="cont" id="detailProject")
-			p {{dataDetail.detail}}
+			md(ng-model="dataDetail.detail")
 			a(ng-href="{{dataDetail.url}}" target="_blank" class="link")
 				svg
 					+gradient()
