@@ -6,13 +6,16 @@
       $('#menuMobile').on('click', toggleMenu);
       $(element).on('mouseenter', hover);
       $(element).on('mouseleave', unhover);
+      $(element).on('click', function(){playSound('clicked')});
     }
 
     function hover () {
       $(this).children().addClass('active');
+      playSound('hoverIcon');
     }
 
     function unhover() {
+      resetSound('hoverIcon');
       $(this).children().removeClass('active');
     }
     function toggleMenu() {
