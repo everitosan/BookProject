@@ -20,8 +20,7 @@
 
 		TweenMax.to('#detailWork', 1, {right: '-100%'});
 		TweenMax.to(canvasGroup, 1, {scale: 1, x:0 , y:0});
-		
-		document.querySelector('.logoProject').setAttribute('style', null);
+		TweenMax.to('.logoProject', 1, {opacity : 0});
 	}
 
 	function zoomProject() {
@@ -76,6 +75,7 @@
 		var link = canvasGroup.selectAll('.link')
 			.data(links)
 			.enter().append('line')
+			.attr('stroke', "url('#myLinearGradient1')")
 			.attr('class', 'link');
 
 		var group = canvasGroup.selectAll('g')
@@ -100,6 +100,7 @@
 		var node = group
 			.append('circle')
 			.attr('r', 15)
+			.attr('stroke', "url('#myLinearGradient1')")
 			.attr('class', 'node');
 		
 		var logoCirc = group
