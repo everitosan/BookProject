@@ -20,8 +20,7 @@
 
 		TweenMax.to('#detailWork', 1, {right: '-100%'});
 		TweenMax.to(canvasGroup, 1, {scale: 1, x:0 , y:0});
-		
-		document.querySelector('.logoProject').setAttribute('style', null);
+		TweenMax.to('.logoProject', 1, {opacity : 0});
 	}
 
 	function zoomProject() {
