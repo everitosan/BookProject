@@ -1,0 +1,4 @@
+mixin Incidental(url, id, preload, loop)
+	audio(preload=preload id=id loop=loop)
+		source(src="media/incidentals/"+url+".ogg" type="audio/ogg")
+		source(src="media/incidentals/"+url+".mp3" type="audio/mpeg")
