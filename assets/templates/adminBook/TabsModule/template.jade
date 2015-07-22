@@ -36,9 +36,9 @@ div(ng-controller="tabsController")
 						div.row
 							div.col-xs-6
 								.h3.text-left
-									{{project.title}}
+									| {{project.title}}
 								.text-justify
-									{{project.detail}}
+									| {{project.detail}}
 							img.col-xs-6(ng-src="{{project.img}}")
 						div.row
 							div.col-xs-6.text-right
@@ -61,11 +61,11 @@ div(ng-controller="tabsController")
 					div.row(ng-repeat="contact in models[3]")
 						div.row
 							div.col-xs-4.text-center
-								{{contact.residence}}
+								| {{contact.residence}}
 							div.col-xs-4.text-center
-								{{contact.telephone}}
+								| {{contact.telephone}}
 							div.col-xs-4.text-center
-								{{contact.email}}
+								| {{contact.email}}
 								
 						div.row
 							div.col-xs-12.text-justify
