@@ -26,7 +26,8 @@
         restrict: 'E',
         scope: {
         	src: '@',
-          link: '@'
+          link: '@',
+          target: '@'
         },
         link: link,
         templateUrl:'templates/eveBook/IconModule/template.html'
