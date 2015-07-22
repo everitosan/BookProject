@@ -8,7 +8,8 @@
 		'eveBook.controllers',
 		'eveBook.directives',
 		'eveBook.services',
-		'genBook.services'
+		'genBook.services',
+		'yaru22.md'
 		]);
 
 	angular.module('eveBook.animations', []);
@@ -26,7 +27,8 @@
 		'adminBook.directives',
 		'adminBook.services',
 		'genBook.services',
-		'ui.bootstrap'
+		'ui.bootstrap',
+		'yaru22.md'
 		]);
 
 	angular.module('adminBook.animations', []);

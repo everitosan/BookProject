@@ -6,7 +6,8 @@ div(ng-controller="tabsController")
 		section
 			article(ng-show="activeTab(1)")
 				div(ng-repeat="card in models[0]" class="element", ng-show="hasAbout")
-					p.text-justify {{card.description}}
+					div.text-justify
+						md(ng-model="card.description")
 					p.text-center {{card.photo}}
 					div
 						button.btn.btn-default.btn-sm.btn-primary(type='button', ng-click="updateModal($index, 0)")
@@ -38,7 +39,7 @@ div(ng-controller="tabsController")
 								.h3.text-left
 									| {{project.title}}
 								.text-justify
-									| {{project.detail}}
+									md(ng-model="project.detail")
 							img.col-xs-6(ng-src="{{project.img}}")
 						div.row
 							div.col-xs-6.text-right
@@ -69,7 +70,8 @@ div(ng-controller="tabsController")
 								
 						div.row
 							div.col-xs-12.text-justify
-								div {{contact.text}}
+								md(ng-model="contact.text")
+
 
 						div.row
 							div.col-xs-6
