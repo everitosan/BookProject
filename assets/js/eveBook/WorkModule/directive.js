@@ -76,6 +76,7 @@
 		var link = canvasGroup.selectAll('.link')
 			.data(links)
 			.enter().append('line')
+			.attr('stroke', "url('#myLinearGradient1')")
 			.attr('class', 'link');
 
 		var group = canvasGroup.selectAll('g')
@@ -100,6 +101,7 @@
 		var node = group
 			.append('circle')
 			.attr('r', 15)
+			.attr('stroke', "url('#myLinearGradient1')")
 			.attr('class', 'node');
 		
 		var logoCirc = group
