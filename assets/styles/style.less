@@ -8,6 +8,16 @@ body, html {
 	font-family:  'Avenir Next Condensed';
 }
 
+#loader {
+	position: fixed;
+	top: 0;
+	left : 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(0,0,0);
+	z-index: 2;
+}
+
 #wrapper {
 	background: url('/images/cu.png'), rgba(0,0,0,.3);
 	width: 100%;
@@ -33,6 +43,14 @@ body, html {
 				width: 100%;
 				overflow: hidden;
 				margin: 0 auto;
+				.articleTitle {
+					text-align: center;
+					display: none;
+					text-transform: uppercase;
+					p {
+						padding: 10px;
+					}
+				}
 				&:not(#intro) {
 					opacity: 0;
 				}
@@ -68,7 +86,9 @@ svg {
 
 		#sub-wrapper {
 			width: 100% !important;
-			
+			#main article .articleTitle {
+				display: block;
+			}
 		}
 	}
 }
@@ -88,6 +108,16 @@ svg {
 }
 @media screen and (max-width: 736px) and(orientation: landscape) { //iphone 6
 	#wrapper #sub-wrapper #main {
-			height: 86%;
+		height: 86%;
+		article {
+			.flex {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+			.articleTitle{
+				text-align: right;
+			}
+		}
 	}
 }
