@@ -1,12 +1,10 @@
 (function(){
 	angular.module('eveBook.directives')
 	.directive('menuDirective', [function(){
-		var audio, audioClick;
 
 		function link (scope, element) {
-			audio = new  Audio('/media/incidentals/2138.ogg');
-			audioClick = $('#clicked')[0];
-			$(element).find('li').hover(playSound, stopSound).click(Click);
+			
+			$(element).find('li').hover(playSoundHover, stopSoundHover).click(Click);
 			$(element).mouseleave(selectActive);
 			selectFirst();
 
@@ -29,14 +27,13 @@
 			$('#selectedImg').css('top', top);
 		}
 
-		function playSound(){
-			audio.play();
+		function playSoundHover(){
+			playSound('hoverMenu');
 			moveRect(this);
 		}
 
-		function stopSound() {
-			audio.pause();
-			audio.currentTime = 0;
+		function stopSoundHover() {
+			resetSound('hoverMenu');
 		}
 
 		function hideMenu() {
@@ -44,7 +41,7 @@
 		}
 
 		function Click() {
-			audioClick.play();
+			playSound('clicked');
 			colorBG(this);
 		}
 

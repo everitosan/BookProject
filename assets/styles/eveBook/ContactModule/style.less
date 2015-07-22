@@ -6,6 +6,7 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		padding: 3em 0;
 		.diamondContact {
 			background: rgba(0, 0, 0, 1);
 			transform: rotateZ(-45deg);
@@ -29,6 +30,8 @@
 				p {
 						flex: 1;
 					  line-height: 370%;
+					  margin: 0 auto;
+					  width: 90%;
 					  a {
 					  	color: inherit;
 					  }
@@ -51,25 +54,30 @@
 			}
 		}
 	}
-	p {
-		margin: 0 auto;
+	.contacText {
 		width: 90%;
+		margin: 0 auto;
 	}
 }
 
 @media screen and (max-width: 736px) and (orientation: landscape) { //iphone 6 plus
 	#contact {
-		display: flex;
-		align-items: center;
-		.diamondParent {
-			flex: 1;
-			.diamondContact {
-				height: 160px;
-			  width: 160px;
-			}
+		.articleTitle {
+			width: 100%;
 		}
-		p{
-			flex: 1;
+		.flex {
+			display: flex;
+			align-items: center;
+			.diamondParent {
+				flex: 1;
+				.diamondContact {
+					height: 160px;
+				  width: 160px;
+				}
+			}
+			p{
+				flex: 1;
+			}
 		}
 	}
 }
