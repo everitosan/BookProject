@@ -65,7 +65,7 @@
 			.linkDistance(function(){ 
 				var anch = 0;
 				(width < height)? anch=width : anch=height;
-				return Math.floor(Math.random()* ( (anch*.6) - 10 + 1)) + 10 
+				return Math.floor(Math.random()* ( (anch*.6) - 35 + 1)) + 35 
 			})
 			.nodes(data)
 			.links(links);
