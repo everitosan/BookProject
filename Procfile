@@ -1,1 +1,1 @@
-web: ./sails.sh
+web: sails lift
