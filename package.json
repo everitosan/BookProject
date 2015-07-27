@@ -33,7 +33,7 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
-    "post-install": "bower install; grunt prod;"
+    "postinstall": "bower install; grunt prod;"
   },
   "main": "app.js",
   "repository": {
