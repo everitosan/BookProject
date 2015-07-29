@@ -18,7 +18,7 @@
 					s.attr({'opacity': 1});
 				}, 1000);
 
-				TweenMax.to('#logo', 5,{ delay: 5, css: {className: 'visible'} ,ease: Circ.easeInOut});
+				TweenMax.to('#logo', 5,{ delay: 7, css: {className: 'visible'} ,ease: Circ.easeInOut});
 				
 			}
 

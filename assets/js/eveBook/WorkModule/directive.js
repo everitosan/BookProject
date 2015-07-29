@@ -21,6 +21,7 @@
 		TweenMax.to('#detailWork', 1, {right: '-100%'});
 		TweenMax.to(canvasGroup, 1, {scale: 1, x:0 , y:0});
 		TweenMax.to('.logoProject', 1, {opacity : 0});
+		TweenMax.to('.link', 1, {'stroke-opacity': '1', ease: Circ.easeOut});
 	}
 
 	function zoomProject() {
@@ -35,6 +36,7 @@
 		var tl = new TimelineMax();
 
 		tl.to(canvasGroup, 1, {scale: scale, x:x , y:y, ease: Circ.easeOut})
+			.to('.link', 1, {'stroke-opacity': '.5', ease: Circ.easeOut}, '-=1')
 			.to('#detailWork', 1, {delay: .25, right: 0, ease: Circ.easeOut});
 		
 		dataProject = globalData.filter(function ( dataProject ) {
