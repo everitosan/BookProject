@@ -8,4 +8,9 @@
 		document.getElementById(id).pause();
 		document.getElementById(id).currentTime = 0;
 	};
+
+	window.toggleVolume = function(id) {
+		var media = document.getElementById(id);
+		media.volume = !media.volume;
+	}
 })();
