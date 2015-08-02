@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 				expand: true,
 				cwd: './vendor',
 				src: [
-						'angular/angular.js',
+						 'angular/angular.js',
 						 'angular-route/angular-route.js',
 						 'angular-animate/angular-animate.js',
 						 'd3/d3.js',
@@ -36,7 +36,9 @@ module.exports = function(grunt) {
 						 'angular-directive.g-signin/*.js',
 						 'angular-bootstrap/ui-bootstrap-tpls.js',
 						 'marked/marked.min.js',
-						 'angular-md/dist/angular-md.js'
+						 'angular-md/dist/angular-md.js',
+						 'masonry/dist/masonry.pkgd.min.js',
+						 'imagesloaded/imagesloaded.pkgd.min.js',
 						 ],
 				dest: '.tmp/public/js/vendor'
 			}]

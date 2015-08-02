@@ -37,6 +37,9 @@ var jsFilesToInject = [
   'js/vendor/snap.svg/**/*.js',
   'js/vendor/greensock-js/**/**/*.js',
   'js/vendor/angular-md/angular-md.js',
+  '/js/vendor/jquery/dist/jquery.js',
+  '/js/vendor/imagesloaded/imagesloaded.pkgd.min.js',
+  '/js/vendor/masonry/dist/masonry.pkgd.min.js',
   'js/app.js',
 
   // All of the rest of your client-side js files
