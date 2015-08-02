@@ -188,6 +188,9 @@
 
 	function printGrid(data) {
 		var parent = $('.grid');
+
+		$('.grid').html('');
+
 		data.forEach(function(curr){
 			parent.append('<div class="item"> <a target="_blank" href="'+curr.url+'"> <img src="'+curr.img+'"/></a></div>');
 		});
