@@ -187,13 +187,19 @@
 
 
 	function printGrid(data) {
-		console.log(data);
 		var $parent = $('.grid');
+		var sizeClass, random;
 
 		$parent.html('');
 
-		data.forEach(function(curr){
-			$parent.append('<div class="item"> <a target="_blank" href="'+curr.url+'"> <img src="'+curr.img+'"/></a></div>');
+		data.forEach(function(curr, index){
+			sizeClass ="item1";
+			if(index%3 == 0 && index!=0) {
+				random = Math.floor(Math.random()* (2-1+1)) +1;
+				sizeClass ="item"+ random;
+			}
+
+			$parent.append('<div class="item '+sizeClass+'"> <a target="_blank" href="'+curr.url+'"> <img src="'+curr.img+'"/></a></div>');
 		});
 
 		var $grid = $parent.masonry({
@@ -201,6 +207,8 @@
 		    itemSelector: '.item',
 				columnWidth: '.item'
 		});
+
+		$grid.masonry('reloadItems');
 
 		$grid.imagesLoaded().progress( function() {
 		  $grid.masonry('layout');
