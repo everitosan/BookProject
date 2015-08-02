@@ -6,7 +6,16 @@
 	function link (scope, element) {
 
 		scope.$on('dataObtained', function(event, data){
-			printD3(data);
+			if(data.index < 3) {
+				printD3(data.data);
+				$('#canvas').show();
+				$('#gridContainer').hide();
+			}
+			else {
+				$('#canvas').hide();
+				$('#gridContainer').show();
+				printGrid(data.data);
+			}
 		});
 
 		scope.$on('closeDetail', function(event, data){
@@ -175,6 +184,24 @@
 		});
 		return links;
 	}
+
+
+	function printGrid(data) {
+		var parent = $('.grid');
+		data.forEach(function(curr){
+			parent.append('<div class="item"> <a target="_blank" href="'+curr.url+'"> <img src="'+curr.img+'"/></a></div>');
+		});
+
+
+		var $grid = $('.grid').imagesLoaded( function() {
+		  $grid.masonry({
+		  	percentPosition: true,
+		    itemSelector: '.item',
+				columnWidth: '.item'
+		  });
+		});
+	}
+
 	var definitionObject = {
         restrict: 'E',
         link: link,

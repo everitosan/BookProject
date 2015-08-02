@@ -32,7 +32,7 @@
 					$rootScope.$broadcast('toggleXClass', {});
 					apiSrv.get('/work/'+id+'/projects')
 						.then(function(data) {
-							$rootScope.$broadcast('dataObtained', data);
+							$rootScope.$broadcast('dataObtained', {data: data, index: index});
 						});
 				};
 

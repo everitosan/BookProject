@@ -1,8 +1,11 @@
 #work {
 	position: relative;
-	#workContainer, #canvas {
+	#workContainer, #canvas, #gridContainer, .grid {
 		width: 100%;
 		height: 100%;
+	}
+
+	#workContainer{ 
 
 		#canvasGroup {
 			fill-opacity: 0;
@@ -40,12 +43,29 @@
 			opacity: 0;
 		}
 	}
+
+	#gridContainer {
+		overflow: scroll;
+		margin-top: 3em;
+		.item {
+			width: 25%;
+			
+			img {
+				width: 100%;
+			}
+		}
+		.gutter-sizer {
+			width: 4%;
+		}
+	}
+
 	#detailWork {
 		position: absolute;
 		right: -100%;
 		top: 0;
 		height: 90%;
 		width: 45%;
+		z-index: 2;
 
 		#title {
 			min-height: 80px;
@@ -109,6 +129,12 @@
 @media screen and (max-width: 780px){
 	#work {
 
+		#gridContainer {
+			.item {
+				width: 50%;
+			}
+		}
+
 		#detailWork {
 			width: 100%;
 			height: 100%;
@@ -129,4 +155,8 @@
 		}
 	}
 
+}
+
+::-webkit-scrollbar {
+    width: 0px;
 }
