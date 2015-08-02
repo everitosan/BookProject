@@ -187,22 +187,24 @@
 
 
 	function printGrid(data) {
-		var parent = $('.grid');
+		var $parent = $('.grid');
 
-		$('.grid').html('');
+		$parent.html('');
 
 		data.forEach(function(curr){
-			parent.append('<div class="item"> <a target="_blank" href="'+curr.url+'"> <img src="'+curr.img+'"/></a></div>');
+			$parent.append('<div class="item"> <a target="_blank" href="'+curr.url+'"> <img src="'+curr.img+'"/></a></div>');
 		});
 
-
-		var $grid = $('.grid').imagesLoaded( function() {
-		  $grid.masonry({
+		var $grid = $parent.masonry({
 		  	percentPosition: true,
 		    itemSelector: '.item',
 				columnWidth: '.item'
-		  });
 		});
+
+		$grid.imagesLoaded().progress( function() {
+		  $grid.masonry('layout');
+		});
+
 	}
 
 	var definitionObject = {
