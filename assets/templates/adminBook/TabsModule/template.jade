@@ -32,6 +32,10 @@ div(ng-controller="tabsController")
 					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(1)")
 							|	ADD
 				h2.text-center.bg-danger2 Projects
+				div.row
+					label.col-xs-6 Work:
+					select.col-xs-6(type="text" ng-model="projectArea" ng-options="work.name for work in models[1]" ng-change="getProjects()")
+
 				div.container-fluid
 					div.row(ng-repeat="project in models[2]")
 						div.row
@@ -57,6 +61,7 @@ div(ng-controller="tabsController")
 									|	DELETE
 					button.btn.btn-default.btn-sm.btn-default(type='button', ng-click="postModal(2)")
 						|	ADD
+			
 			article(ng-show="activeTab(3)")
 				div.container-fluid
 					div.row(ng-repeat="contact in models[3]")

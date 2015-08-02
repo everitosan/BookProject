@@ -11,6 +11,8 @@
 
 				$scope.post = function () {
 					$scope.Model._csrf=_csrf;
+					$scope.Model.img = 'images/projects/'+$scope.Model.work.name+'/'+$scope.Model.img;
+					
 					apiSrv.post('/project/create/', $scope.Model).then(function(data){
 						$scope.Model.mod = null;	
 						$scope.Model = data;

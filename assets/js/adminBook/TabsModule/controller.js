@@ -12,6 +12,7 @@
 				];
 
 				$scope.hasAbout = false;
+				$scope.projectArea = {};
 
 				var Model = {};
 				var genIndex = 0,
@@ -36,13 +37,14 @@
 						$scope.models[1] = data;
 					});
 
-					apiSrv.get('/project').then(function(data){
-						$scope.models[2] = data;
-
-					});
-
 					apiSrv.get('/contact').then(function(data){
 						$scope.models[3] = data;
+					});
+				}
+
+				$scope.getProjects =  function() {
+					apiSrv.get('/work/'+$scope.projectArea.id+'/projects').then(function(data){
+						$scope.models[2] = data;
 					});
 				}
 
