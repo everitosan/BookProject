@@ -187,6 +187,7 @@
 
 
 	function printGrid(data) {
+		console.log(data);
 		var $parent = $('.grid');
 
 		$parent.html('');
