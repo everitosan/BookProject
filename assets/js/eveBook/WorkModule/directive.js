@@ -1,6 +1,6 @@
 (function(){
 	angular.module('eveBook.directives')
-	.directive('workDirective', ['$rootScope', function($rootScope){
+	.directive('workDirective', ['$rootScope', '$compile', function($rootScope, $compile){
 	var svg, canvasGroup, width, height,globalData;
 
 	function link (scope, element) {
@@ -14,8 +14,10 @@
 			else {
 				$('#canvas').hide();
 				$('#gridContainer').show();
-				printGrid(data.data);
+				printGrid(data.data, scope);
 			}
+			if(canvasGroup)
+				zoomOut();
 		});
 
 		scope.$on('closeDetail', function(event, data){
@@ -158,7 +160,6 @@
 		  });
 	
 		force.start();	
-		
 	}
 
 	function setNodesXY(data) {
@@ -186,32 +187,11 @@
 	}
 
 
-	function printGrid(data) {
+	function printGrid(data, $scope) {
 		var $parent = $('.grid');
-		var sizeClass, random;
-
 		$parent.html('');
-
-		data.forEach(function(curr, index){
-			sizeClass ="item1";
-			if(index%3 == 0 && index!=0) {
-				random = Math.floor(Math.random()* (2-1+1)) +1;
-				sizeClass ="item"+ random;
-			}
-
-			$parent.append('<div class="item '+sizeClass+'"> <a target="_blank" href="'+curr.url+'"> <img src="'+curr.img+'"/></a></div>');
-		});
-
-		var $grid = $parent.masonry({
-		  	percentPosition: true,
-		    itemSelector: '.item',
-				columnWidth: '.item'
-		});
-
-		$grid.masonry('reloadItems');
-
-		$grid.imagesLoaded().progress( function() {
-		  $grid.masonry('layout');
+		data.forEach(function(curr, index){	
+			$parent.append($compile('<div class="item" grid-item url="'+curr.url+'"  img="'+curr.img+'"></div>')($scope));
 		});
 
 	}
