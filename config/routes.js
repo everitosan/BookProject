@@ -34,7 +34,7 @@ module.exports.routes = {
 
   'get /': { view: 'intro'},
   'get /eve': {view: 'admin'},
-  'get /leds': {view: 'leds'},
+  'get /leds': {view: 'apps/leds'},
 
 
 
