@@ -16,6 +16,7 @@ function back()
 	$(' #matriz,#info').hide();
 	$('#menumatriz').fadeToggle();
 	$('#atras').hide();
+	$('#info').html('');
 }
 
 function seleccionmatriz()
@@ -61,6 +62,7 @@ function cargaimagen(ima)
 
 function sieteseg()
 {
+	$('#botones').hide();
 	$('#contenedor').html('<div id="sieteseg"><div id="a" class="seg"></div><div id="b" class="seg"></div><div id="c" class="seg"></div><div id="d" class="seg"></div><div id="e" class="seg"></div><div id="f" class="seg"></div><div id="g" class="seg"></div>	<div id="h" class="seg"></div>	</div>');
 	$('#atras').show();
 	$('#sieteseg').show();
