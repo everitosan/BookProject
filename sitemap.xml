@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url> 
+
+    <loc>http://evesan.rocks</loc> 
+    <image:image>
+       <image:loc>http://evesan.rocks/images/profile4.jpg</image:loc> 
+    </image:image>
+
+    <video:video>     
+      <video:content_loc>
+        http://evesan.rocks/media/EVESANBG.webm
+      </video:content_loc>
+      
+      <video:thumbnail_loc>
+        http://evesan.rocks/images/videoBg.jpg
+      </video:thumbnail_loc>
+      <video:title>EVESAN intro</video:title>  
+      <video:description>
+        Presentation of EVESAN
+      </video:description>
+    </video:video>
+
+  </url>
+</urlset>
