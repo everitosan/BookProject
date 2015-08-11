@@ -6,7 +6,7 @@
 
     <loc>http://evesan.rocks</loc> 
     <image:image>
-       <image:loc>http://evesan.rocks/images/profile4.jpg</image:loc> 
+       <image:loc>http://evesan.rocks/images/socialShare/facebookShare.jpg</image:loc> 
     </image:image>
 
     <video:video>     
@@ -23,5 +23,20 @@
       </video:description>
     </video:video>
 
+  </url>
+  <url> 
+    <loc>http://evesan.rocks/#/aboutme</loc> 
+    <image:image>
+       <image:loc>http://evesan.rocks/images/profile4.jpg</image:loc> 
+    </image:image>
+  </url>
+    <url> 
+    <loc>http://evesan.rocks/#/work</loc> 
+    <image:image>
+       <image:loc>http://evesan.rocks/images/videoBg.jpg</image:loc> 
+    </image:image>
+  </url>
+    <url> 
+    <loc>http://evesan.rocks/#/contact</loc> 
   </url>
 </urlset>
