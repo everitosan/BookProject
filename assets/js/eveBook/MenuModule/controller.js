@@ -3,9 +3,11 @@
 
 	angular.module('eveBook.controllers')
 		.controller('MenuController', 
-			['$scope',function ($scope) {
+			['$scope', '$location', function ($scope, $location) {
 				
-				
+				$scope.redirect = function(path){
+					$location.path(path);
+				};
 				
 			}]);
 })();

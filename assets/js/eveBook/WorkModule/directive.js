@@ -1,6 +1,6 @@
 (function(){
 	angular.module('eveBook.directives')
-	.directive('workDirective', ['$rootScope', '$compile', function($rootScope, $compile){
+	.directive('workDirective', ['$rootScope', '$compile', 'animationSrv', function($rootScope, $compile, animationSrv){
 	var svg, canvasGroup, width, height,globalData;
 
 	function link (scope, element) {
@@ -23,6 +23,10 @@
 		scope.$on('closeDetail', function(event, data){
 			zoomOut();
 		});
+
+		animationSrv.enterSection();
+
+		TweenMax.to('#work', 1, {opacity: 1, ease: Circ.easeOut, delay: 1});
 
 	}
 

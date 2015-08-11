@@ -3,14 +3,11 @@
 <div ng-app="eveBook">
 	<video-directive></video-directive>
 
-	<div id="wrapper" ng-controller="NavController">
+	<div id="wrapper">
 		<div id="sub-wrapper">
 			<nav-directive> </nav-directive>
-			<section id="main">
-				<intro-directive ng-if="isActive(0)" class="introAnimation"></intro-directive>
-				<about-directive ng-if="isActive(1)" class="aboutAnimation"></about-directive>	
-				<work-directive ng-if="isActive(2)"  class="workAnimation"></work-directive>	
-				<contact-directive ng-if="isActive(3)" class="contactAnimation" ></contact-directive>
+			<section id="main" ng-view>
+
 			</section>
 		</div>
 		<div id="menu">

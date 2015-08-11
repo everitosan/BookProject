@@ -6,7 +6,6 @@
 			
 			$(element).find('li').hover(playSoundHover, stopSoundHover).click(Click);
 			$(element).mouseleave(selectActive);
-			selectFirst();
 
 			if($('#menu nav').css('opacity') == 1) {
 				$(element).find('li').click(hideMenu);
@@ -16,14 +15,6 @@
 
 		function selectActive() {
 			var top = parseInt($('.menuActive').position().top) + (parseInt($('.menuActive').parent().css('height'))*.12);
-			$('#selectedImg').css('top', top);
-		}
-
-		function selectFirst() {
-			var $el = $('#menu nav ul li:first')
-			var top = parseInt($el.position().top) + (parseInt($el.parent().css('height'))*.08 );
-
-			$el.addClass('menuActive');
 			$('#selectedImg').css('top', top);
 		}
 
@@ -41,7 +32,6 @@
 		}
 
 		function Click() {
-			playSound('clicked');
 			colorBG(this);
 		}
 

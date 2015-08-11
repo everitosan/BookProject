@@ -9,6 +9,10 @@
 		document.getElementById(id).currentTime = 0;
 	};
 
+	window.pauseSound = function (id) {
+		document.getElementById(id).pause();
+	};
+
 	window.toggleVolume = function(id) {
 		var media = document.getElementById(id);
 		media.volume = !media.volume;
