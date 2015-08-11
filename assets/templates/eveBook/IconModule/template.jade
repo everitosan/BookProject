@@ -1,6 +1,11 @@
 div.Icon
 	.rotateBack
-		a(href="{{link}}" target="{{target}}")
+		a(href="{{link}}" target="{{target}}" ng-if="link")
+			div#lineUp.line
+			object(type="image/svg+xml" class="iconLogo" id="{{src}}" data="images/icons/{{src}}.svg")
+			img(class="iconLogoImg" ng-src="images/icons/{{src}}.svg")
+			div#lineDown.line
+		span(ng-if="!link")
 			div#lineUp.line
 			object(type="image/svg+xml" class="iconLogo" id="{{src}}" data="images/icons/{{src}}.svg")
 			img(class="iconLogoImg" ng-src="images/icons/{{src}}.svg")

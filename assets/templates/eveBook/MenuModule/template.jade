@@ -3,9 +3,9 @@ nav(ng-controller="MenuController")
         img(src="images/EVESANLogo.png")
     ul
         img(id="selectedImg" src="images/menuItem.svg")
-        li( ng-click="$parent.$parent.setActive(1)") About Me
-        li( ng-click="$parent.$parent.setActive(2)") Work
-        li( ng-click="$parent.$parent.setActive(3)") Contact
+        li( id="aboutmeLink" ng-click="redirect('/aboutme')") About Me
+        li( id="workLink" ng-click="redirect('/work')") Work
+        li( id="contactLink" ng-click="redirect('/contact')") Contact
     span(id="mobileTooglerMenu")
         svg(width='100%', height='100%', viewbox='0 0 45 45', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', xml:space='preserve', style='fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.41421;')
             g#Layer1

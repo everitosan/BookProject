@@ -1,5 +1,5 @@
 article#intro
 	figure(id="logo")
 		img(ng-src="images/EVESANLogo.png")
-	figure(id="enterContainer")
-		svg(id="enter", ng-click="setActive(1)")
+	figure(id="enterContainer" ng-controller="MenuController")
+		svg(id="enter", ng-click="redirect('/aboutme')")

@@ -3,6 +3,7 @@
 	.directive('workMenuDirective', [function(){
 
 	function link($scope, element) {
+
 		$scope.$on('toggleXClass', function(event, data){
 			$('.toogler').toggleClass('toogled');
 		});
