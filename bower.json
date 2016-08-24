@@ -1,11 +1,11 @@
 {
-  "name": "\"BookProject\"",
+  "name": "BookProject",
   "version": "0.0.0",
   "homepage": "https://github.com/everitosan/BookProject",
   "authors": [
     "everardo sanchez <everardo.ipn@gmail.com>"
   ],
-  "description": "\"development of my own book\"",
+  "description": "development of my own book",
   "license": "MIT",
   "ignore": [
     "**/.*",
